@@ -1,20 +1,13 @@
-ŚWIĘTY KOŚCIÓŁ KATOLICKI — WERSJA 2
+ŚWIĘTY KOŚCIÓŁ KATOLICKI — ADRIAN ŻALEJKO — WERSJA 4
 
-Pliki:
-- index.html — strona główna
-- apologetyka.html
-- magisterium.html
-- ojcowie-kosciola.html
-- zarzuty.html
-- multimedia.html
-- modlitwa.html
-- o-nas.html
+Pliki gotowe do publikacji na Netlify lub GitHub Pages.
 
-To jest statyczna wersja demonstracyjna. Wszystkie strony mają wspólny wygląd i działające linki między podstronami.
+Zmiany:
+- usunięty stary artykuł; pozostaje artykuł o Najświętszej Maryi Pannie,
+- artykuł dostępny z sekcji APOLOGETYKA oraz NAJŚWIĘTSZA MARYJA PANNA,
+- artykuł jest oznaczony jako NAJNOWSZY,
+- dodano klikalne wsparcie autora: https://buycoffee.to/adrian-zalejko,
+- dodano rotujące cytaty Pisma, Ojców Kościoła, Doktorów, katechizmów, encyklik, papieży przedsoborowych i KPK 1917,
+- poprawiono responsywność i układ pełnej szerokości.
 
-Następny etap:
-1. dodać prawdziwe teksty i źródła,
-2. dodać wyszukiwarkę,
-3. dodać osobne artykuły,
-4. podłączyć YouTube,
-5. przenieść całość na hosting/WordPress albo rozbudować jako własny serwis.
+Publikacja: wgraj zawartość tego folderu jako nową wersję witryny.

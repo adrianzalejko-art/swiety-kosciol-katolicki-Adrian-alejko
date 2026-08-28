@@ -1,260 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Święty Kościół Katolicki — portal apologetyczny oparty na Piśmie Świętym, Tradycji i Magisterium Kościoła.">
-  <title>Święty Kościół Katolicki | Prawda · Tradycja · Wiara</title>
-  <style>
-    :root{
-      --navy:#071421;
-      --navy2:#0d2131;
-      --gold:#c9a45b;
-      --gold2:#e1c47d;
-      --cream:#f3ead8;
-      --paper:#fbf6eb;
-      --ink:#18202a;
-      --muted:#6e675d;
-      --line:#d8c9a9;
-      --max:1180px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Georgia,"Times New Roman",serif;background:var(--paper);color:var(--ink);line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    .topbar{background:var(--navy);color:#f8efd9;border-bottom:1px solid rgba(201,164,91,.45)}
-    .header{max-width:var(--max);margin:auto;padding:28px 24px 22px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .brand{display:flex;align-items:center;gap:18px}
-    .crest{width:64px;height:76px;border:2px solid var(--gold);border-radius:18px 18px 28px 28px;display:grid;place-items:center;color:var(--gold2);font-size:25px;position:relative}
-    .crest:before{content:"✦";position:absolute;top:-18px;font-size:22px}
-    .brand h1{margin:0;font-size:clamp(27px,4vw,45px);letter-spacing:2px;text-transform:uppercase;font-weight:600}
-    .brand p{margin:2px 0 0;color:var(--gold2);letter-spacing:3px;font-size:13px;text-transform:uppercase}
-    .quote{max-width:390px;text-align:right;color:#e9dcbf;font-style:italic;font-size:14px}
-    .quote span{display:block;color:var(--gold2);font-size:12px;margin-top:5px}
-    nav{border-top:1px solid rgba(201,164,91,.22)}
-    .nav-inner{max-width:var(--max);margin:auto;display:flex;align-items:center;gap:0;overflow:auto;padding:0 12px}
-    .nav-inner a{white-space:nowrap;padding:15px 13px;color:#f5ecd9;font-size:13px;text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid transparent}
-    .nav-inner a:hover,.nav-inner a.active{color:var(--gold2);border-bottom-color:var(--gold)}
-    .hero{min-height:500px;background:
-      linear-gradient(90deg,rgba(3,10,16,.93) 0%,rgba(3,10,16,.75) 47%,rgba(3,10,16,.34) 100%),
-      radial-gradient(circle at 78% 45%,rgba(201,164,91,.18),transparent 28%),
-      linear-gradient(135deg,#182a34,#111);
-      color:#fff;display:flex;align-items:center;position:relative;overflow:hidden}
-    .hero:after{content:"✝";position:absolute;right:8%;top:50%;transform:translateY(-50%);font-size:260px;color:rgba(201,164,91,.11)}
-    .hero-inner{max-width:var(--max);width:100%;margin:auto;padding:75px 24px;position:relative;z-index:1}
-    .eyebrow{color:var(--gold2);text-transform:uppercase;letter-spacing:3px;font-size:13px;font-weight:bold}
-    .hero h2{font-size:clamp(38px,6vw,68px);line-height:1.03;margin:12px 0 18px;max-width:760px}
-    .hero h2 em{color:var(--gold2);font-style:normal}
-    .hero p{max-width:650px;font-size:18px;color:#eee4d1;margin-bottom:28px}
-    .buttons{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:12px 20px;border:1px solid var(--gold);text-transform:uppercase;letter-spacing:1px;font-size:12px;font-weight:bold}
-    .btn.primary{background:var(--gold);color:var(--navy)}
-    .btn.secondary{color:#fff;background:transparent}
-    .section{max-width:var(--max);margin:auto;padding:58px 24px}
-    .section-title{text-align:center;margin-bottom:30px}
-    .section-title .eyebrow{font-size:11px}
-    .section-title h3{font-size:32px;margin:5px 0 0}
-    .section-title:after{content:"✦";display:block;color:var(--gold);margin-top:7px}
-    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:#fffaf0;border:1px solid var(--line);padding:28px;position:relative}
-    .card:before{content:"";position:absolute;inset:7px;border:1px solid rgba(201,164,91,.3);pointer-events:none}
-    .icon{width:58px;height:58px;border-radius:50%;background:var(--navy);border:1px solid var(--gold);color:var(--gold2);display:grid;place-items:center;font-size:25px;margin-bottom:17px}
-    .card h4{font-size:22px;margin:0 0 8px}
-    .card p{color:var(--muted);margin:0 0 14px;font-size:15px}
-    .more{color:#9a742d;font-weight:bold;font-size:13px}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-    .list-item{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-    .thumb{height:82px;background:linear-gradient(135deg,#263c46,#0e1821);display:grid;place-items:center;color:var(--gold2);font-size:30px}
-    .list-item h4{margin:0 0 4px;font-size:18px}
-    .list-item p{margin:0;color:var(--muted);font-size:14px}
-    .dark-section{background:var(--navy);color:#fff}
-    .dark-section .section-title h3{color:#f8efd9}
-    .answers{max-width:var(--max);margin:auto;padding:55px 24px}
-    .answer-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-    .answer{border:1px solid rgba(201,164,91,.55);padding:20px 10px;text-align:center;color:#f5ecd9;transition:.2s}
-    .answer:hover{transform:translateY(-3px);background:rgba(201,164,91,.08)}
-    .answer .aicon{font-size:28px;color:var(--gold2);display:block;margin-bottom:8px}
-    .answer span{font-size:13px}
-    .cta{background:linear-gradient(135deg,#0d2131,#172f3c);border:1px solid var(--gold);color:#fff;padding:30px;text-align:center}
-    .cta h3{margin:0 0 7px;color:var(--gold2);font-size:27px}
-    .cta p{margin:0 auto 18px;max-width:700px;color:#e7decc}
-    footer{background:#050e16;color:#d9ceb8;padding:35px 24px}
-    .footer-inner{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
-    footer strong{color:var(--gold2)}
-    .copyright{font-size:13px;color:#8d887d}
-    @media(max-width:850px){
-      .header{flex-direction:column;text-align:center}
-      .quote{text-align:center}
-      .pillars,.split{grid-template-columns:1fr}
-      .answer-grid{grid-template-columns:repeat(3,1fr)}
-    }
-    @media(max-width:520px){
-      .hero-inner{padding:55px 20px}
-      .hero h2{font-size:42px}
-      .hero p{font-size:16px}
-      .answer-grid{grid-template-columns:repeat(2,1fr)}
-      .list-item{grid-template-columns:90px 1fr}
-      .thumb{height:68px}
-    }
-  </style>
-
-<style>
-.latest-link{display:grid;grid-template-columns:minmax(240px,34%) 1fr;background:#fffaf0;border:1px solid #d8c9a9;box-shadow:0 8px 24px rgba(24,32,42,.06);text-decoration:none;color:inherit;overflow:hidden;position:relative}.latest-link:before{content:"";position:absolute;inset:7px;border:1px solid rgba(201,164,91,.3);pointer-events:none;z-index:2}.latest-link-thumb{min-height:240px;overflow:hidden}.latest-link-thumb img{width:100%;height:100%;min-height:240px;object-fit:cover;display:block}.latest-link-copy{padding:32px;display:flex;flex-direction:column;justify-content:center}.latest-link-copy .eyebrow{font-size:10px}.latest-link-copy h3{font-size:30px;line-height:1.15;margin:9px 0 12px}.latest-link-copy p{color:#6e675d;font-size:16px;max-width:720px}.latest-link .more{display:inline-block;margin-top:8px;color:#8e6d2e;font-weight:bold}.latest-link:hover{transform:translateY(-2px);transition:transform .18s ease,box-shadow .18s ease;box-shadow:0 12px 30px rgba(24,32,42,.1)}@media(max-width:700px){.latest-link{grid-template-columns:1fr}.latest-link-thumb,.latest-link-thumb img{min-height:210px;height:210px}.latest-link-copy{padding:25px}.latest-link-copy h3{font-size:24px}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Święty Kościół Katolicki — Adrian Żalejko</title>
+<meta name="description" content="Święty Kościół Katolicki — portal apologetyczny Adriana Żalejko. Apologetyka, Magisterium, Ojcowie Kościoła, Najświętsza Maryja Panna i obalanie zarzutów.">
+<meta name="author" content="Adrian Żalejko">
+<link rel="canonical" href="https://swietykosciolkatolicki-adrianzalejko.netlify.app/">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="topbar">
-  <div class="header">
-    <a class="brand" href="#start" aria-label="Święty Kościół Katolicki">
-      <div class="crest">IHS</div>
-      <div>
-        <h1>Święty Kościół<br>Katolicki</h1>
-        <p>Prawda · Tradycja · Wiara</p>
-      </div>
-    </a>
-    <div class="quote">„Bądźcie zawsze gotowi do obrony przed każdym, kto domaga się od was uzasadnienia tej nadziei, która w was jest.”<span>1 P 3,15</span></div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html"><span class="ihs">IHS</span><span><strong>Święty Kościół<br>Katolicki</strong><small>ADRIAN ŻALEJKO</small></span></a>
+    <p class="motto">„Bądźcie zawsze gotowi do obrony…” <b>1 P 3,15</b></p>
   </div>
-  <nav>
-    <div class="nav-inner">
-      <a class="active" href="#start">Strona główna</a>
-      <a href="#apologetyka">Apologetyka</a>
-      <a href="#tradycja">Magisterium i Tradycja</a>
-      <a href="#zarzuty">Obalanie zarzutów</a>
-      <a href="#multimedia">Multimedia</a>
-      <a href="#modlitwa">Modlitwa</a>
-      <a href="#onas">O nas</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
-  </nav>
 </header>
-
-<main id="start">
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">Portal apologetyczny</div>
-      <h2>Wiara katolicka<br><em>oparta na prawdzie.</em></h2>
-      <p>Obrona i wyjaśnianie wiary katolickiej w oparciu o Pismo Święte, Świętą Tradycję i autentyczne Magisterium Kościoła.</p>
-      <div class="buttons">
-        <a class="btn primary" href="#apologetyka">Poznaj apologetykę</a>
-        <a class="btn secondary" href="#tradycja">Przejdź do źródeł</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section latest-added" id="najnowsze">
-    <div class="section-title">
-      <div class="eyebrow">Najnowsze</div>
-      <h3>Najświętsza Maryja Panna</h3>
-    </div>
-    <a class="latest-link" href="article-maryja.html" aria-label="Otwórz artykuł: Najświętsza Maryja Panna Jest Wolna od Wszelkiego Grzechu">
-      <div class="latest-link-thumb"><img src="maryja.jpg" alt="Najświętsza Maryja Panna — grafika artykułu"></div>
-      <div class="latest-link-copy">
-        <div class="eyebrow">APOLOGETYKA · OJCOWIE KOŚCIOŁA · ZARZUTY</div>
-        <h3>Najświętsza Maryja Panna Jest Wolna od Wszelkiego Grzechu!</h3>
-        <p>Arka Nowego Przymierza a zarzuty redukcjonizmu. Biblijna i patrystyczna odpowiedź na protestancki traktat „Święta Maryja zawsze grzesznica”.</p>
-        <span class="more">Czytaj cały artykuł →</span>
-      </div>
-    </a>
-  </section>
-
-  <section class="section" id="tradycja">
-    <div class="section-title">
-      <div class="eyebrow">Fundament</div>
-      <h3>Pismo · Tradycja · Magisterium</h3>
-    </div>
-    <div class="pillars">
-      <article class="card">
-        <div class="icon">📖</div>
-        <h4>Pismo Święte</h4>
-        <p>Słowo Boże i podstawowe teksty biblijne dotyczące nauki katolickiej.</p>
-        <a class="more" href="#">Czytaj więcej →</a>
-      </article>
-      <article class="card">
-        <div class="icon">⛪</div>
-        <h4>Święta Tradycja</h4>
-        <p>Nauka Apostołów przekazywana w Kościele przez kolejne pokolenia.</p>
-        <a class="more" href="#">Czytaj więcej →</a>
-      </article>
-      <article class="card">
-        <div class="icon">✠</div>
-        <h4>Magisterium</h4>
-        <p>Dokumenty papieskie, sobory, katechizmy i oficjalne nauczanie Kościoła.</p>
-        <a class="more" href="#">Czytaj więcej →</a>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="apologetyka">
-    <div class="section-title">
-      <div class="eyebrow">Biblioteka wiedzy</div>
-      <h3>Najnowsze materiały</h3>
-    </div>
-    <div class="split">
-      <div>
-        <h3>Najnowsze artykuły</h3>
-        <article class="list-item"><div class="thumb" style="padding:0;overflow:hidden"><img src="maryja.jpg" alt="Najświętsza Maryja Panna" style="width:100%;height:100%;object-fit:cover"></div><div><h4>Najświętsza Maryja Panna Jest Wolna od Wszelkiego Grzechu!</h4><p>Arka Nowego Przymierza, typologia biblijna i świadectwo Ojców Kościoła.</p><a class="more" href="article-maryja.html">Czytaj artykuł →</a></div></article>
-      </div>
-      <div id="multimedia">
-        <h3>Najnowsze materiały wideo</h3>
-        <article class="list-item"><div class="thumb">▶</div><div><h4>Dlaczego Kościół katolicki?</h4><p>Apologetyczna odpowiedź na najważniejsze pytania.</p><a class="more" href="#">Oglądaj →</a></div></article>
-        <article class="list-item"><div class="thumb">▶</div><div><h4>Ojcowie Kościoła a Tradycja</h4><p>Świadectwo starożytnego chrześcijaństwa.</p><a class="more" href="#">Oglądaj →</a></div></article>
-        <article class="list-item"><div class="thumb">▶</div><div><h4>Najczęstsze zarzuty wobec katolicyzmu</h4><p>Krótko, rzeczowo i ze źródłami.</p><a class="more" href="#">Oglądaj →</a></div></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="dark-section" id="zarzuty">
-    <div class="answers">
-      <div class="section-title">
-        <div class="eyebrow">Szybki dostęp</div>
-        <h3>Najważniejsze odpowiedzi apologetyczne</h3>
-      </div>
-      <div class="answer-grid">
-        <a class="answer" href="#"><span class="aicon">✝</span><span>Protestantyzm</span></a>
-        <a class="answer" href="#"><span class="aicon">⛪</span><span>Prawosławie</span></a>
-        <a class="answer" href="#"><span class="aicon">?</span><span>Ateizm</span></a>
-        <a class="answer" href="#"><span class="aicon">⚖</span><span>Zarzuty</span></a>
-        <a class="answer" href="#"><span class="aicon">📜</span><span>Ojcowie Kościoła</span></a>
-        <a class="answer" href="#"><span class="aicon">✠</span><span>Herezje</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="modlitwa">
-    <div class="cta">
-      <h3>„Dołącz do walki o prawdę”</h3>
-      <p>Odkrywaj wiarę katolicką poprzez Pismo Święte, Tradycję, świadectwo Ojców Kościoła i dokumenty Magisterium.</p>
-      <a class="btn primary" href="https://buycoffee.to/adrian-zalejko" target="_blank" rel="noopener">☕ Wesprzyj autora</a>
-    </div>
-  </section>
-</main>
-
-<footer id="kontakt">
-  <div class="footer-inner">
-    <div><strong>✠ Święty Kościół Katolicki</strong><br><span class="copyright">Prawda · Tradycja · Wiara</span></div>
-    <div class="copyright">Strona demonstracyjna — pierwsza wersja projektu</div>
-    <div><strong>Rz 12,21</strong><br><span class="copyright">„Nie daj się zwyciężyć złu, ale zło dobrem zwyciężaj.”</span></div>
+<nav class="main-nav" aria-label="Główna nawigacja">
+  <div class="nav-inner">
+    <a href="index.html">STRONA GŁÓWNA</a>
+    <a href="article-maryja.html">APOLOGETYKA</a>
+    <a href="article-maryja.html#viii">KATOLICYZM I PRAWOSŁAWIE</a>
+    <a href="article-maryja.html">NAJŚWIĘTSZA MARYJA PANNA</a>
+    <a href="#magisterium">MAGISTERIUM</a>
+    <a href="#ojcowie">OJCOWIE KOŚCIOŁA</a>
+    <a href="#zarzuty">OBALANIE ZARZUTÓW</a>
+    <a class="support-link" href="https://buycoffee.to/adrian-zalejko" target="_blank" rel="noopener noreferrer">WSPARCIE AUTORA</a>
   </div>
-</footer>
-<script>
-const quotes=[
-['„Bądźcie zawsze gotowi do obrony przed każdym, kto domaga się od was uzasadnienia tej nadziei, która w was jest.”','1 P 3,15'],
-['„Tyś jest Piotr, czyli Opoka, i na tej opoce zbuduję Kościół mój.”','Mt 16,18'],
-['„Nieznajomość Pisma Świętego jest nieznajomością Chrystusa.”','Św. Hieronim, komentarz do Izajasza'],
-['„Ty sam i Twoja Matka jesteście piękniejsi od wszystkich innych.”','Św. Efrem Syryjczyk'],
-['„Z wyjątkiem zatem Świętej Dziewicy Maryi…”','Św. Augustyn, De natura et gratia 36,42'],
-['„Kościół jest jeden, a nie może być poza nim zbawienia.”','Św. Cyprian z Kartaginy'],
-['„Wiara bez uczynków jest martwa.”','Jk 2,26'],
-['„Łaska nie niszczy natury, lecz ją udoskonala.”','Św. Tomasz z Akwinu, STh I, q.1, a.8 ad 2'],
-['„Poza Kościołem nie ma zbawienia.”','Katechizm Rzymski, I, XI, 5'],
-['„Niech więc nikt nie ośmiela się lekceważyć przykazań Kościoła.”','KPK 1917, kan. 124'],
-['„Strzeżcie się, aby ktoś was nie zwiódł.”','Mt 24,4'],
-['„Trzeba bardziej słuchać Boga niż ludzi.”','Dz 5,29'],
-['„Najświętsza Dziewica Maryja… została zachowana od wszelkiej zmazy grzechu pierworodnego.”','Pius IX, Ineffabilis Deus (1854)'],
-['„Wiara katolicka polega na tym, aby czcić jednego Boga w Trójcy.”','Symbol Quicumque (Atanazjański)'],
-['„Kościół Chrystusowy jest doskonałym społeczeństwem.”','Leon XIII, Satis cognitum (1896)']
-];
-let i=0; const q=document.querySelector('.quote'); function rotate(){const [t,r]=quotes[i]; q.innerHTML='„'+t.replace(/^„|”$/g,'')+'”<span>'+r+'</span>'; i=(i+1)%quotes.length;} setInterval(rotate,5500);
-</script>
-</body>
-</html>
+</nav>
+<section class="quote-bar" aria-live="polite">
+  <div class="quote-inner">
+    <span class="quote-label">SŁOWA WIARY</span>
+    <blockquote id="rotating-quote">„Bądźcie zawsze gotowi do obrony…”</blockquote>
+    <span id="rotating-source" class="quote-source">1 P 3,15</span>
+  </div>
+</section>
+<main>
+<section class="home-hero"><div class="home-copy">
+<div class="eyebrow">ŚWIĘTY KOŚCIÓŁ KATOLICKI</div>
+<h1>Wiara, Tradycja i Apologetyka</h1>
+<p>Materiały poświęcone obronie wiary katolickiej, Magisterium Kościoła, Pismu Świętemu i świadectwu Ojców Kościoła.</p>
+<div class="hero-actions">
+<a class="button" href="article-maryja.html">Przeczytaj najnowszy artykuł →</a>
+<a class="button button-outline" href="https://buycoffee.to/adrian-zalejko" target="_blank" rel="noopener noreferrer">Wesprzyj autora</a>
+</div>
+</div></section>
+<section class="latest" id="najnowsze"><div class="section-heading"><span>NAJNOWSZE</span><h2>Ostatnie artykuły</h2></div>
+<div id="latest-list" class="latest-list">
+<a class="article-card" href="article-maryja.html" data-date="2026-08-28">
+<img src="assets/maryja-hero.jpg" alt="Grafika tytułowa artykułu o Najświętszej Maryi Pannie">
+<div><div class="card-tags">APOLOGETYKA · OJCOWIE KOŚCIOŁA · ZARZUTY · NAJNOWSZE</div>
+<h2>Najświętsza Maryja Panna Jest Wolna od Wszelkiego Grzechu!</h2>
+<p>Arka Nowego Przymierza a zarzuty redukcjonizmu. Biblijna i patrystyczna odpowiedź na protestancki traktat.</p>
+<span class="read">CZYTAJ ARTYKUŁ →</span></div>
+</a>
+</div>
+<p class="latest-note">Sekcja „Najnowsze” jest przygotowana do zastępowania starszych wpisów nowymi artykułami.</p>
+</section>
+<section class="sections">
+<div><h3>APOLOGETYKA</h3><p>Obrona wiary katolickiej na podstawie Pisma, Tradycji i nauczania Kościoła.</p><a class="section-link" href="article-maryja.html">Zobacz artykuł →</a></div>
+<div id="magisterium"><h3>MAGISTERIUM</h3><p>Dokumenty, definicje dogmatyczne, encykliki i katechizmy.</p></div>
+<div id="ojcowie"><h3>OJCOWIE KOŚCIOŁA</h3><p>Świadectwa starożytnego Kościoła i kontekst patrystyczny.</p><a class="section-link" href="article-maryja.html#iv">Zobacz w artykule →</a></div>
+<div id="zarzuty"><h3>OBALANIE ZARZUTÓW</h3><p>Analizy najczęściej spotykanych argumentów przeciw wierze katolickiej.</p><a class="section-link" href="article-maryja.html#ii">Zobacz w artykule →</a></div>
+</section>
+<section class="support-box">
+  <div><span class="eyebrow">WSPARCIE DLA AUTORA</span><h2>Jeżeli cenisz tę pracę, możesz ją wesprzeć.</h2><p>Wsparcie Chętnych Dla Katolickiego Cenzurowanego Twórcy.</p></div>
+  <a class="button" href="https://buycoffee.to/adrian-zalejko" target="_blank" rel="noopener noreferrer">WESPRZYJ ADRIANA ŻALEJKO →</a>
+</section>
+</main>
+<footer id="onas"><strong>Święty Kościół Katolicki — Adrian Żalejko</strong><span>Apologetyka · Magisterium · Ojcowie Kościoła · <a href="https://buycoffee.to/adrian-zalejko" target="_blank" rel="noopener noreferrer">Wsparcie autora</a></span></footer>
+<script src="quotes.js"></script>
+</body></html>
