@@ -1,20 +1,13 @@
-ŚWIĘTY KOŚCIÓŁ KATOLICKI — WERSJA 2
+PATCH — ARTYKUŁ MARYJA
 
-Pliki:
-- index.html — strona główna
-- apologetyka.html
-- magisterium.html
-- ojcowie-kosciola.html
-- zarzuty.html
-- multimedia.html
-- modlitwa.html
-- o-nas.html
+Ta paczka zawiera WYŁĄCZNIE pliki podstrony artykułu:
+- article-maryja.html
+- assets/maryja-hero.jpg
 
-To jest statyczna wersja demonstracyjna. Wszystkie strony mają wspólny wygląd i działające linki między podstronami.
+Nie zawiera index.html ani żadnych plików strony głównej.
+Nie podmieniaj żadnych innych plików.
 
-Następny etap:
-1. dodać prawdziwe teksty i źródła,
-2. dodać wyszukiwarkę,
-3. dodać osobne artykuły,
-4. podłączyć YouTube,
-5. przenieść całość na hosting/WordPress albo rozbudować jako własny serwis.
+Wizualnie artykuł został dopasowany do dostarczonego obrazu referencyjnego: 24982.png.
+Grafika główna artykułu to: maryja-hero.jpg.
+Data artykułu: A.D. 28.08.2026.
+Treść artykułu została zachowana; zmiany dotyczą wyłącznie prezentacji podstrony oraz metadaty daty.
