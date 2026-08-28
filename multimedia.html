@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Święty Kościół Katolicki — Adrian Żalejko — portal apologetyczny oparty na Piśmie Świętym, Tradycji i Magisterium Kościoła.">
+<meta name="author" content="Adrian Żalejko">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Święty Kościół Katolicki — Adrian Żalejko">
+<meta property="og:description" content="Portal apologetyczny oparty na Piśmie Świętym, Tradycji i Magisterium Kościoła.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Święty Kościół Katolicki — Adrian Żalejko">
+<meta name="twitter:description" content="Portal apologetyczny oparty na Piśmie Świętym, Tradycji i Magisterium Kościoła.">
+
+<title>Święty Kościół Katolicki — Adrian Żalejko</title>
+<style>
+    :root{
+      --navy:#071421;
+      --navy2:#0d2131;
+      --gold:#c9a45b;
+      --gold2:#e1c47d;
+      --cream:#f3ead8;
+      --paper:#fbf6eb;
+      --ink:#18202a;
+      --muted:#6e675d;
+      --line:#d8c9a9;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Georgia,"Times New Roman",serif;background:var(--paper);color:var(--ink);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .topbar{background:var(--navy);color:#f8efd9;border-bottom:1px solid rgba(201,164,91,.45)}
+    .header{max-width:var(--max);margin:auto;padding:28px 24px 22px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{display:flex;align-items:center;gap:18px}
+    .crest{width:64px;height:76px;border:2px solid var(--gold);border-radius:18px 18px 28px 28px;display:grid;place-items:center;color:var(--gold2);font-size:25px;position:relative}
+    .crest:before{content:"✦";position:absolute;top:-18px;font-size:22px}
+    .brand h1{margin:0;font-size:clamp(27px,4vw,45px);letter-spacing:2px;text-transform:uppercase;font-weight:600}
+    .brand p{margin:2px 0 0;color:var(--gold2);letter-spacing:3px;font-size:13px;text-transform:uppercase}
+    .quote{max-width:390px;text-align:right;color:#e9dcbf;font-style:italic;font-size:14px}
+    .quote span{display:block;color:var(--gold2);font-size:12px;margin-top:5px}
+    nav{border-top:1px solid rgba(201,164,91,.22)}
+    .nav-inner{max-width:var(--max);margin:auto;display:flex;align-items:center;gap:0;overflow:auto;padding:0 12px}
+    .nav-inner a{white-space:nowrap;padding:15px 13px;color:#f5ecd9;font-size:13px;text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid transparent}
+    .nav-inner a:hover,.nav-inner a.active{color:var(--gold2);border-bottom-color:var(--gold)}
+    .hero{min-height:500px;background:
+      linear-gradient(90deg,rgba(3,10,16,.93) 0%,rgba(3,10,16,.75) 47%,rgba(3,10,16,.34) 100%),
+      radial-gradient(circle at 78% 45%,rgba(201,164,91,.18),transparent 28%),
+      linear-gradient(135deg,#182a34,#111);
+      color:#fff;display:flex;align-items:center;position:relative;overflow:hidden}
+    .hero:after{content:"✝";position:absolute;right:8%;top:50%;transform:translateY(-50%);font-size:260px;color:rgba(201,164,91,.11)}
+    .hero-inner{max-width:var(--max);width:100%;margin:auto;padding:75px 24px;position:relative;z-index:1}
+    .eyebrow{color:var(--gold2);text-transform:uppercase;letter-spacing:3px;font-size:13px;font-weight:bold}
+    .hero h2{font-size:clamp(38px,6vw,68px);line-height:1.03;margin:12px 0 18px;max-width:760px}
+    .hero h2 em{color:var(--gold2);font-style:normal}
+    .hero p{max-width:650px;font-size:18px;color:#eee4d1;margin-bottom:28px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 20px;border:1px solid var(--gold);text-transform:uppercase;letter-spacing:1px;font-size:12px;font-weight:bold}
+    .btn.primary{background:var(--gold);color:var(--navy)}
+    .btn.secondary{color:#fff;background:transparent}
+    .section{max-width:var(--max);margin:auto;padding:58px 24px}
+    .section-title{text-align:center;margin-bottom:30px}
+    .section-title .eyebrow{font-size:11px}
+    .section-title h3{font-size:32px;margin:5px 0 0}
+    .section-title:after{content:"✦";display:block;color:var(--gold);margin-top:7px}
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:#fffaf0;border:1px solid var(--line);padding:28px;position:relative}
+    .card:before{content:"";position:absolute;inset:7px;border:1px solid rgba(201,164,91,.3);pointer-events:none}
+    .icon{width:58px;height:58px;border-radius:50%;background:var(--navy);border:1px solid var(--gold);color:var(--gold2);display:grid;place-items:center;font-size:25px;margin-bottom:17px}
+    .card h4{font-size:22px;margin:0 0 8px}
+    .card p{color:var(--muted);margin:0 0 14px;font-size:15px}
+    .more{color:#9a742d;font-weight:bold;font-size:13px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+    .list-item{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+    .thumb{height:82px;background:linear-gradient(135deg,#263c46,#0e1821);display:grid;place-items:center;color:var(--gold2);font-size:30px}
+    .list-item h4{margin:0 0 4px;font-size:18px}
+    .list-item p{margin:0;color:var(--muted);font-size:14px}
+    .dark-section{background:var(--navy);color:#fff}
+    .dark-section .section-title h3{color:#f8efd9}
+    .answers{max-width:var(--max);margin:auto;padding:55px 24px}
+    .answer-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+    .answer{border:1px solid rgba(201,164,91,.55);padding:20px 10px;text-align:center;color:#f5ecd9;transition:.2s}
+    .answer:hover{transform:translateY(-3px);background:rgba(201,164,91,.08)}
+    .answer .aicon{font-size:28px;color:var(--gold2);display:block;margin-bottom:8px}
+    .answer span{font-size:13px}
+    .cta{background:linear-gradient(135deg,#0d2131,#172f3c);border:1px solid var(--gold);color:#fff;padding:30px;text-align:center}
+    .cta h3{margin:0 0 7px;color:var(--gold2);font-size:27px}
+    .cta p{margin:0 auto 18px;max-width:700px;color:#e7decc}
+    footer{background:#050e16;color:#d9ceb8;padding:35px 24px}
+    .footer-inner{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+    footer strong{color:var(--gold2)}
+    .copyright{font-size:13px;color:#8d887d}
+    @media(max-width:850px){
+      .header{flex-direction:column;text-align:center}
+      .quote{text-align:center}
+      .pillars,.split{grid-template-columns:1fr}
+      .answer-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:520px){
+      .hero-inner{padding:55px 20px}
+      .hero h2{font-size:42px}
+      .hero p{font-size:16px}
+      .answer-grid{grid-template-columns:repeat(2,1fr)}
+      .list-item{grid-template-columns:90px 1fr}
+      .thumb{height:68px}
+    }
+  
+.page-hero{background:linear-gradient(135deg,#071421,#163042);color:#fff;padding:65px 24px;border-bottom:1px solid rgba(201,164,91,.5)}
+.page-hero-inner{max-width:1180px;margin:auto}
+.page-hero h2{font-size:clamp(38px,5vw,60px);margin:8px 0;color:#f7efdf}
+.page-hero p{max-width:760px;color:#ded4c2;font-size:17px}
+.breadcrumb{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#d9b96d}
+.content{max-width:1180px;margin:auto;padding:55px 24px}
+.content-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.topic{background:#fffaf0;border:1px solid #d8c9a9;padding:25px;min-height:190px}
+.topic h3{margin:0 0 8px;font-size:23px}
+.topic p{color:#6e675d}
+.topic a{color:#9a742d;font-weight:bold;font-size:13px}
+.info{background:#f4ead7;border-left:4px solid #c9a45b;padding:20px 24px;margin:25px 0}
+.searchbox{display:flex;gap:10px;margin:25px 0;max-width:760px}
+.searchbox input{flex:1;padding:13px;border:1px solid #cdbd9b;background:#fffdf8;font-family:inherit}
+.searchbox button{padding:13px 18px;background:#c9a45b;border:0;font-weight:bold}
+@media(max-width:850px){.content-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.content-grid{grid-template-columns:1fr}.header{flex-direction:column;text-align:center}.quote{text-align:center}}
+</style></head>
+<body><header class="topbar">
+  <div class="header">
+    <a class="brand" href="index.html" aria-label="Święty Kościół Katolicki">
+      <div class="crest">IHS</div>
+      <div><h1>Święty Kościół<br>Katolicki</h1><div class="author-brand">Adrian Żalejko</div><p>Prawda · Tradycja · Wiara</p></div>
+    </a>
+    <div class="quote" id="rotating-quote"></div>
+  </div>
+  <nav><div class="nav-inner">
+    <a href="index.html">Strona główna</a>
+    <a href="apologetyka.html">Apologetyka</a>
+    <a href="magisterium.html">Magisterium</a>
+    <a href="ojcowie-kosciola.html">Ojcowie Kościoła</a>
+    <a href="zarzuty.html">Obalanie zarzutów</a>
+    <a class="active" href="multimedia.html">Multimedia</a>
+    <a href="modlitwa.html">Modlitwa</a>
+    <a href="o-nas.html">O nas</a>
+  </div></nav>
+</header>
+<section class="page-hero"><div class="page-hero-inner">
+<div class="breadcrumb">Święty Kościół Katolicki · Multimedia</div>
+<h2>Multimedia</h2><p>Materiały wideo, nagrania i transmisje związane z apologetyką katolicką.</p>
+</div></section>
+<main class="content">
+<div class="info"><strong>Uwaga:</strong> To pierwsza wersja działu. Kategorie i przykładowe materiały są przygotowane jako struktura do dalszego uzupełnienia.</div>
+<div class="content-grid"><article class="topic"><h3>▶ YouTube</h3><p>Miejsce na osadzone filmy i najnowsze materiały z kanału.</p><a href="#">Oglądaj →</a></article><article class="topic"><h3>▣ Shorts / TikTok</h3><p>Krótkie odpowiedzi apologetyczne i materiały edukacyjne.</p><a href="#">Zobacz materiały →</a></article><article class="topic"><h3>🎥 Transmisje</h3><p>Zapowiedzi i archiwum transmisji na żywo.</p><a href="#">Zobacz transmisje →</a></article><article class="topic"><h3>🎙 Nagrania</h3><p>Miejsce na audio i wykłady apologetyczne.</p><a href="#">Słuchaj →</a></article></div>
+</main><footer>
+  <div class="footer-inner">
+    <div><strong>✠ Święty Kościół Katolicki — Adrian Żalejko</strong><br><span class="copyright">Prawda · Tradycja · Wiara</span></div>
+    <div class="copyright">Portal apologetyczny — wersja demonstracyjna</div>
+    <div><strong>Rz 12,21</strong><br><span class="copyright">„Nie daj się zwyciężyć złu, ale zło dobrem zwyciężaj.”</span></div>
+  </div>
+</footer><script>
+(function(){
+  const quotes=[["„Bądźcie zawsze gotowi do obrony przed każdym, kto domaga się od was uzasadnienia tej nadziei, która w was jest.”", "1 P 3,15 — Pismo Święte"], ["„Ty jesteś Piotr, czyli Skała, i na tej Skale zbuduję Kościół mój.”", "Mt 16,18 — Pismo Święte"], ["„Securus iudicat orbis terrarum.”", "Św. Augustyn, Doctor Ecclesiae"], ["„Salus extra Ecclesiam non est.”", "Św. Cyprian z Kartaginy"], ["„Bonum est diffusivum sui.”", "Św. Tomasz z Akwinu, Doctor Ecclesiae"], ["„Wiara jest cnotą nadprzyrodzoną.”", "Sobór Watykański I, Dei Filius"], ["„Modernizm jest syntezą wszystkich herezji.”", "Św. Pius X, Pascendi Dominici Gregis"], ["„Zachowana od wszelkiej zmazy grzechu pierworodnego.”", "Pius IX, Ineffabilis Deus"], ["„Kościół jest Ciałem Chrystusa.”", "Leon XIII, Satis Cognitum"], ["„Imputabilitas delicti pendet ex dolo delinquentis vel ex eiusdem culpa...”", "KPK z 1917 r., kan. 2199"], ["„Wiara jest początkiem ludzkiego zbawienia.”", "Sobór Watykański I, Dei Filius"], ["„Nie daj się zwyciężyć złu, ale zło dobrem zwyciężaj.”", "Rz 12,21 — Pismo Święte"]];
+  const box=document.getElementById('rotating-quote');
+  if(!box) return;
+  let i=0;
+  function show(){const q=quotes[i]; box.innerHTML=q[0]+'<span>'+q[1]+'</span>'; i=(i+1)%quotes.length;}
+  show();
+  setInterval(show,6000);
+})();
+</script></body></html>
