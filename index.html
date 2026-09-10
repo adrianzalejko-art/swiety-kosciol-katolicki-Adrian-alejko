@@ -96,7 +96,23 @@
       .list-item{grid-template-columns:90px 1fr}
       .thumb{height:68px}
     }
-  </style>
+  
+    /* Przywrócony profil Papieża Leona XIV */
+    .pope-link{position:absolute;top:16px;right:24px;width:126px;background:rgba(7,20,33,.96);border:1px solid var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.28);padding:6px;text-align:center;z-index:5;transition:transform .2s ease,box-shadow .2s ease}
+    .pope-link:hover,.pope-link:focus-visible{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.4)}
+    .pope-link img{display:block;width:100%;height:92px;object-fit:cover;object-position:center top;border:1px solid rgba(201,164,91,.55)}
+    .pope-link span{display:block;color:var(--gold2);font-weight:700;font-size:12px;line-height:1.15;padding:7px 2px 4px}
+    .pope-link span:after{content:' →';color:var(--gold2)}
+    .header{position:relative}
+    .crest{flex:0 0 64px;overflow:visible}
+    .article-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+    @media (max-width:760px){
+      .header{padding-right:165px}
+      .pope-link{width:92px;top:10px;right:10px;padding:4px}
+      .pope-link img{height:68px}
+      .pope-link span{font-size:10px;padding:5px 1px 2px}
+    }
+</style>
 </head>
 <body>
 <header class="topbar">
@@ -109,6 +125,10 @@
       </div>
     </a>
     <div class="quote">„Bądźcie zawsze gotowi do obrony przed każdym, kto domaga się od was uzasadnienia tej nadziei, która w was jest.”<span>1 P 3,15</span></div>
+  <a class="pope-link" href="papiez-leon-xiv.html" aria-label="Papież Leon XIV — biografia">
+      <img src="papiez-leon-xiv.jpg" alt="Papież Leon XIV">
+      <span>Papież Leon XIV</span>
+    </a>
   </div>
   <nav>
     <div class="nav-inner">
@@ -173,12 +193,13 @@
       <div>
         <h3>Najnowsze artykuły</h3>
         <article class="list-item"><div class="thumb" style="padding:0;overflow:hidden"><img src="maryja.jpg" alt="Najświętsza Maryja Panna" style="width:100%;height:100%;object-fit:cover"></div><div><h4>Najświętsza Maryja Panna Jest Wolna od Wszelkiego Grzechu!</h4><p>Arka Nowego Przymierza, typologia biblijna i świadectwo Ojców Kościoła.</p><a class="more" href="article-maryja.html">Czytaj artykuł →</a></div></article>
+        <article class="list-item"><div class="thumb article-thumb"><img src="article-church-thumb.jpg" alt="Kościół katolicki i Bazylika św. Piotra"></div><div><h4>Dlaczego Kościół Katolicki?</h4><p>O Boskim ustanowieniu, znamionach prawdy i Mistycznym Ciele Chrystusa.</p><a class="more" href="church-of-christ.html">Przeczytaj →</a></div></article>
+        <article class="list-item"><div class="thumb article-thumb"><img src="article-tradition-thumb.jpg" alt="Krzyż, Biblia i tradycja Kościoła"></div><div><h4>Ojcowie Kościoła a Święta Tradycja</h4><p>Świadkowie i Strażnicy Niezmiennego Depozytu Wiary.</p><a class="more" href="article-ojcowie-tradycja.html">Przeczytaj →</a></div></article>
+        <article class="list-item"><div class="thumb article-thumb"><img src="article-objections-thumb.jpg" alt="Biblia i krzyż — kompendium apologetyczne"></div><div><h4>Wielkie Kompendium Apologetyczne</h4><p>Obalenie 12 Głównych Zarzutów Wobec Wiary Katolickiej.</p><a class="more" href="article-apologetyka-zarzuty.html">Przeczytaj →</a></div></article>
       </div>
       <div id="multimedia">
         <h3>Najnowsze materiały wideo</h3>
-        <article class="list-item"><div class="thumb">▶</div><div><h4>Dlaczego Kościół katolicki?</h4><p>Apologetyczna odpowiedź na najważniejsze pytania.</p><a class="more" href="church-of-christ.html">Przeczytaj →</a></div></article>
-        <article class="list-item"><div class="thumb">▶</div><div><h4>Ojcowie Kościoła a Tradycja</h4><p>Świadectwo starożytnego chrześcijaństwa.</p><a class="more" href="article-ojcowie-tradycja.html">Przeczytaj →</a></div></article>
-        <article class="list-item"><div class="thumb">▶</div><div><h4>Najczęstsze zarzuty wobec katolicyzmu</h4><p>Krótko, rzeczowo i ze źródłami.</p><a class="more" href="article-apologetyka-zarzuty.html">Przeczytaj →</a></div></article>
+        <p style="color:var(--muted);margin-top:18px">Materiały wideo będą dodawane w tej sekcji.</p>
       </div>
     <div style="text-align:center;margin-top:22px"><a class="btn primary" href="apologetyka.html">Zobacz całą bibliotekę apologetyczną →</a></div>
   </div>
