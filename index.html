@@ -44,6 +44,13 @@ img{max-width:100%;display:block}
 .pope-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.28)}
 .pope-card img{width:100%;height:145px;object-fit:cover;object-position:center 18%;display:block}
 .pope-card-title{display:block;color:var(--navy);font-size:16px;font-weight:bold;text-align:center;padding:8px 4px 5px;line-height:1.2}
+.author-card{width:175px;flex:none;background:rgba(255,253,248,.98);border:1px solid var(--gold);padding:7px;box-shadow:0 8px 22px rgba(0,0,0,.22);transition:transform .2s,box-shadow .2s}
+.author-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.28)}
+.author-card img{width:100%;height:145px;object-fit:cover;object-position:center 30%;display:block}
+.author-card-title{display:block;color:var(--navy);font-size:16px;font-weight:bold;text-align:center;padding:8px 4px 3px;line-height:1.2}
+.author-card-bio{display:block;color:var(--muted);font-size:11px;text-align:center;line-height:1.35;padding:0 5px 6px}
+@media(max-width:950px){.author-card{width:210px}.author-card img{height:175px}}
+@media(max-width:600px){.author-card{width:190px}.author-card img{height:160px}}
 @media(max-width:950px){.header{flex-direction:column;text-align:center}.quote{text-align:center}.pope-card{width:210px}.pope-card img{height:175px}}
 @media(max-width:600px){.pope-card{width:190px}.pope-card img{height:160px}}
 nav{border-top:1px solid rgba(201,164,91,.2)}
@@ -178,6 +185,11 @@ footer strong{color:var(--gold2)}
   <a class="pope-card" href="papiez-leon-xiv.html" aria-label="Papież Leon XIV — biografia">
    <img src="papiez-leon-xiv.jpg" alt="Papież Leon XIV">
    <span class="pope-card-title">Papież Leon XIV</span>
+  </a>
+  <a class="author-card" href="o-nas.html" aria-label="Adrian Żalejko — autor strony i biografia">
+   <img src="autor-adrian-zalejko.jpg" alt="Adrian Żalejko — autor strony">
+   <span class="author-card-title">Adrian Żalejko</span>
+   <span class="author-card-bio">Autor strony · Pismo Święte · teologia · obrona katolickiej Tradycyjnej Wiary</span>
   </a>
  </div>
  <nav><div class="nav-inner">
