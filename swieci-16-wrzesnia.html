@@ -12,8 +12,12 @@ a{color:#8d6728}.top{background:var(--navy);color:#f8efd9;padding:22px 18px;bord
 .top-inner{max-width:1050px;margin:auto}.brand{color:var(--gold2);font-size:13px;letter-spacing:2px;text-transform:uppercase}.back{display:inline-block;margin-top:10px;color:#fff;text-decoration:none;font-size:13px}
 main{max-width:1050px;margin:auto;padding:48px 20px 70px}.eyebrow{color:#8c6827;text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:bold}
 h1{font-size:clamp(38px,6vw,66px);line-height:1.08;margin:10px 0 18px}h2{font-size:30px;margin:42px 0 12px}p{font-size:17px}.lead{font-size:20px;color:var(--muted);max-width:850px}
-.intro{background:var(--white);border:1px solid var(--line);padding:24px;margin:28px 0}.saint{background:var(--white);border:1px solid var(--line);padding:20px;margin:28px 0 38px}.saint img{width:100%;max-height:620px;object-fit:contain;background:#eee7d8}.caption{font-size:12px;color:var(--muted);margin-top:8px}
+.intro{background:linear-gradient(135deg,#fffdf8,#f3ead9);border:1px solid var(--line);padding:26px;margin:28px 0;box-shadow:0 10px 28px rgba(40,30,15,.06)}
+.liturgy-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.meta-card{background:var(--white);border:1px solid var(--line);padding:16px}.meta-card strong{display:block;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1.3px;margin-bottom:4px}
+.saint{background:var(--white);border:1px solid var(--line);padding:20px;margin:28px 0 38px;box-shadow:0 8px 24px rgba(40,30,15,.04)}.saint img{width:100%;max-height:620px;object-fit:contain;background:#eee7d8}.caption{font-size:12px;color:var(--muted);margin-top:8px}
+.commemoration{border-left:4px solid var(--gold);background:#f8f1e4}.ember{border-left:4px solid #8c6827;background:linear-gradient(135deg,#f7efe0,#fffdf8)}
 .box{background:#f1e8d6;border-left:4px solid var(--gold);padding:18px 20px;margin:24px 0}.sources{border-top:1px solid var(--line);margin-top:48px;padding-top:20px;font-size:14px;color:var(--muted)}
+@media(max-width:700px){.liturgy-meta{grid-template-columns:1fr}.meta-card{padding:14px}}
 @media(max-width:600px){main{padding:34px 16px 55px}h1{font-size:39px}h2{font-size:27px}.lead{font-size:18px}p{font-size:16px}}
 </style>
 </head>
@@ -24,7 +28,13 @@ h1{font-size:clamp(38px,6vw,66px);line-height:1.08;margin:10px 0 18px}h2{font-si
 <h1>Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy</h1>
 <p class="lead">Biografie dwóch wielkich pasterzy Kościoła III wieku, których życie i męczeństwo przypadły na czas prześladowań oraz poważnych prób jedności Kościoła.</p>
 
-<div class="intro"><strong>Semiduplex.</strong> W tradycyjnym kalendarzu rzymskim sprzed reformy z 1960 r. dzień 16 września obchodzono jako <em>Ss. Cornelii Papæ et Cypriani Episcopi, Martyrum</em>, <strong>semiduplex</strong>. W roku 1954 święto to przypadało 16 września. Źródła liturgiczne podają również wspomnienie świętych Eufemii, Łucji i Geminiana.</div>
+<div class="intro"><strong>Semiduplex.</strong> W kalendarzu rzymskim z 1954 r. dzień 16 września obchodzono jako <em>Ss. Cornelii Papæ et Cypriani Episcopi, Martyrum</em>, w randze <strong>semiduplex</strong>. Tego dnia przypadała również <strong>kommemoracja św. Eufemii, dziewicy i męczennicy, oraz świętych Łucji i Geminiana, męczenników</strong>.</div>
+<div class="liturgy-meta">
+<div class="meta-card"><strong>Ranga dnia</strong>Semiduplex</div>
+<div class="meta-card"><strong>Kommemoracja</strong>Św. Eufemia, św. Łucja i św. Geminian</div>
+<div class="meta-card"><strong>Okres postny</strong>Suche Dni wrześniowe</div>
+</div>
+<div class="intro ember"><strong>Suche Dni — Środa Suchych Dni.</strong> 16 września 2026 przypada w środę Suchych Dni wrześniowych. W tradycyjnej dyscyplinie były to dni postu, modlitwy i dziękczynienia, związane także z modlitwą o powołania i uświęcenie duchowieństwa.</div>
 
 <section class="saint">
 <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Photograph_of_a_statue_of_Pope_Saint_Cornelius_Cuypershuis_0686_(045).jpg?width=1000" alt="Statua św. Korneliusza, papieża">
@@ -44,6 +54,24 @@ h1{font-size:clamp(38px,6vw,66px);line-height:1.08;margin:10px 0 18px}h2{font-si
 <p>Jako biskup kierował Kościołem afrykańskim w niezwykle trudnym okresie. Pozostawił liczne listy i traktaty dotyczące jedności Kościoła, pokuty, sakramentów i życia chrześcijańskiego. W czasie kryzysu po prześladowaniu Decjusza pozostawał w ścisłej łączności z papieżem Korneliuszem, którego uważał za prawowitego biskupa Rzymu.</p>
 <p>Za panowania cesarza Waleriana rozpoczęło się nowe prześladowanie. Cyprian został najpierw zesłany do Curubis, a następnie sprowadzony przed namiestnika. Odmówił wyrzeczenia się wiary. 14 września 258 roku poniósł śmierć męczeńską w Kartaginie.</p>
 <p>Św. Cyprian pozostawił Kościołowi szczególnie cenne świadectwo o jego jedności. W swoich listach mówił o Katedrze Piotra, o jedności kapłańskiej oraz o więzi między biskupami i Kościołem powszechnym.</p>
+</section>
+
+<section class="saint commemoration">
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/St%20Euphemia.jpg?width=1000" alt="Św. Eufemia, dziewica i męczennica">
+<div class="caption">Przedstawienie św. Eufemii — materiał z Wikimedia Commons.</div>
+<h2>Kommemoracja: św. Eufemia, św. Łucja i św. Geminian</h2>
+<p><strong>Św. Eufemia</strong> była dziewicą i męczennicą z Chalcedonu. Jej kult jest poświadczony w starożytnej tradycji Kościoła, a jej wspomnienie 16 września należy do dawnych obchodów tego dnia.</p>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Saint%20Lucy%20by%20Domenico%20di%20Pace%20Beccafumi.jpg?width=1000" alt="Św. Łucja, dziewica i męczennica">
+<div class="caption">Św. Łucja — obraz Domenica Beccafumiego, domena publiczna, Wikimedia Commons.</div>
+<p><strong>Św. Łucja</strong> była dziewicą i męczennicą z Syrakuz, czczoną w starożytnym Kościele zachodnim. Jej świadectwo wiary wiąże się z okresem prześladowań.</p>
+<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Saint%20Geminianus.jpg?width=1000" alt="Św. Geminian, biskup Modeny">
+<div class="caption">Św. Geminian — dzieło Simone Martiniego, domena publiczna, Wikimedia Commons.</div>
+<p><strong>Św. Geminian</strong> był biskupem Modeny w IV wieku. Jest wspominany w tradycji Martyrologium jako pasterz Kościoła i święty czczony w Italii.</p>
+</section>
+
+<section class="saint ember">
+<h2>Suche Dni wrześniowe</h2>
+<p>Suche Dni (<em>Quatuor Temporum</em>) tworzą cztery okresy po trzy dni — środę, piątek i sobotę — przeznaczone w tradycji rzymskiej na post, modlitwę i dziękczynienie. Jesienne Suche Dni są związane z początkiem jesieni i prośbą o Boże błogosławieństwo, a tradycyjnie także z modlitwą za przyszłych i obecnych kapłanów.</p>
 </section>
 
 <h2>Dwaj pasterze — jedna wiara i jedno świadectwo</h2>
