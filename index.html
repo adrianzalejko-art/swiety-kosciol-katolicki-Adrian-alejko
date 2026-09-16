@@ -97,10 +97,22 @@
       .thumb{height:68px}
     }
   
-.saint-day{background:linear-gradient(180deg,#fffaf0,#f3ead8);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.saint-day-card{background:#fff;border:1px solid var(--line);padding:25px;position:relative}.saint-day-card:before{content:"✠";position:absolute;right:18px;top:12px;color:rgba(201,164,91,.35);font-size:30px}.saint-day-card h4{font-size:22px;margin:0 35px 8px 0}.saint-day-rank{display:inline-block;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:bold;margin-bottom:6px}.saint-day-card p{margin:0;color:var(--muted);font-size:15px}.saint-day-note{text-align:center;color:var(--muted);font-size:13px;margin:22px 0 0}
+    /* Przywrócony profil Papieża Leona XIV */
+    .pope-link{position:absolute;top:16px;right:24px;width:126px;background:rgba(7,20,33,.96);border:1px solid var(--gold);box-shadow:0 6px 18px rgba(0,0,0,.28);padding:6px;text-align:center;z-index:5;transition:transform .2s ease,box-shadow .2s ease}
+    .pope-link:hover,.pope-link:focus-visible{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.4)}
+    .pope-link img{display:block;width:100%;height:92px;object-fit:cover;object-position:center top;border:1px solid rgba(201,164,91,.55)}
+    .pope-link span{display:block;color:var(--gold2);font-weight:700;font-size:12px;line-height:1.15;padding:7px 2px 4px}
+    .pope-link span:after{content:' →';color:var(--gold2)}
+    .header{position:relative}
+    .crest{flex:0 0 64px;overflow:visible}
+    .article-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+    @media (max-width:760px){
+      .header{padding-right:165px}
+      .pope-link{width:92px;top:10px;right:10px;padding:4px}
+      .pope-link img{height:68px}
+      .pope-link span{font-size:10px;padding:5px 1px 2px}
+    }
 </style>
-  <meta name="google-site-verification" content="a3Uk7alYnKUfXhKAE3CmxIvukcoq_lrVSUhgeZEMq9k" />
 </head>
 <body>
 <header class="topbar">
@@ -113,11 +125,15 @@
       </div>
     </a>
     <div class="quote">„Bądźcie zawsze gotowi do obrony przed każdym, kto domaga się od was uzasadnienia tej nadziei, która w was jest.”<span>1 P 3,15</span></div>
+  <a class="pope-link" href="papiez-leon-xiv.html" aria-label="Papież Leon XIV — biografia">
+      <img src="papiez-leon-xiv.jpg" alt="Papież Leon XIV">
+      <span>Papież Leon XIV</span>
+    </a>
   </div>
   <nav>
     <div class="nav-inner">
       <a class="active" href="#start">Strona główna</a>
-      <a href="#apologetyka">Apologetyka</a>
+      <a href="apologetyka.html">Apologetyka</a>
       <a href="#tradycja">Magisterium i Tradycja</a>
       <a href="#zarzuty">Obalanie zarzutów</a>
       <a href="#multimedia">Multimedia</a>
@@ -135,17 +151,10 @@
       <h2>Wiara katolicka<br><em>oparta na prawdzie.</em></h2>
       <p>Obrona i wyjaśnianie wiary katolickiej w oparciu o Pismo Święte, Świętą Tradycję i autentyczne Magisterium Kościoła.</p>
       <div class="buttons">
-        <a class="btn primary" href="#apologetyka">Poznaj apologetykę</a>
+        <a class="btn primary" href="apologetyka.html">Poznaj apologetykę</a>
         <a class="btn secondary" href="#tradycja">Przejdź do źródeł</a>
       </div>
     </div>
-  </section>
-
-
-  <section class="section saint-day" id="swieci-dnia">
-    <div class="section-title"><div class="eyebrow">Kalendarz liturgiczny</div><h3>Święci dnia dzisiejszego</h3></div>
-    <div class="saint-day-card" data-saints-today><p style="color:var(--muted);margin:0">Ładowanie kalendarza...</p></div>
-    <p class="saint-day-note">Kalendarz oparty na układzie rzymskim <strong>Divino Afflatu – 1954</strong>, czyli stanie sprzed reformy z 1955 r. Sekcja zmienia się automatycznie każdego dnia.</p>
   </section>
 
   <section class="section" id="tradycja">
@@ -158,19 +167,19 @@
         <div class="icon">📖</div>
         <h4>Pismo Święte</h4>
         <p>Słowo Boże i podstawowe teksty biblijne dotyczące nauki katolickiej.</p>
-        <a class="more" href="#">Czytaj więcej →</a>
+        <a class="more" href="magisterium.html">Czytaj więcej →</a>
       </article>
       <article class="card">
         <div class="icon">⛪</div>
         <h4>Święta Tradycja</h4>
         <p>Nauka Apostołów przekazywana w Kościele przez kolejne pokolenia.</p>
-        <a class="more" href="#">Czytaj więcej →</a>
+        <a class="more" href="magisterium.html">Czytaj więcej →</a>
       </article>
       <article class="card">
         <div class="icon">✠</div>
         <h4>Magisterium</h4>
         <p>Dokumenty papieskie, sobory, katechizmy i oficjalne nauczanie Kościoła.</p>
-        <a class="more" href="#">Czytaj więcej →</a>
+        <a class="more" href="magisterium.html">Czytaj więcej →</a>
       </article>
     </div>
   </section>
@@ -183,7 +192,6 @@
     <div class="split">
       <div>
         <h3>Najnowsze artykuły</h3>
-        <article class="list-item"><div class="thumb article-thumb"><img src="cyprian-rzym.png" alt="Święty Cyprian z Kartaginy i Rzym"></div><div><h4>Św. Cyprian z Kartaginy — Rzym, Katedra Piotra i jedność Kościoła</h4><p>List 59, List 48 i List 68 oraz spór ze Stefanem I o chrzest heretyków.</p><a class="more" href="article-cyprian-rzym.html">Czytaj artykuł →</a></div></article>
         <article class="list-item"><div class="thumb" style="padding:0;overflow:hidden"><img src="maryja.jpg" alt="Najświętsza Maryja Panna" style="width:100%;height:100%;object-fit:cover"></div><div><h4>Najświętsza Maryja Panna Jest Wolna od Wszelkiego Grzechu!</h4><p>Arka Nowego Przymierza, typologia biblijna i świadectwo Ojców Kościoła.</p><a class="more" href="article-maryja.html">Czytaj artykuł →</a></div></article>
         <article class="list-item"><div class="thumb article-thumb"><img src="article-church-thumb.jpg" alt="Kościół katolicki i Bazylika św. Piotra"></div><div><h4>Dlaczego Kościół Katolicki?</h4><p>O Boskim ustanowieniu, znamionach prawdy i Mistycznym Ciele Chrystusa.</p><a class="more" href="church-of-christ.html">Przeczytaj →</a></div></article>
         <article class="list-item"><div class="thumb article-thumb"><img src="article-tradition-thumb.jpg" alt="Krzyż, Biblia i tradycja Kościoła"></div><div><h4>Ojcowie Kościoła a Święta Tradycja</h4><p>Świadkowie i Strażnicy Niezmiennego Depozytu Wiary.</p><a class="more" href="article-ojcowie-tradycja.html">Przeczytaj →</a></div></article>
@@ -191,11 +199,10 @@
       </div>
       <div id="multimedia">
         <h3>Najnowsze materiały wideo</h3>
-        <article class="list-item"><div class="thumb">▶</div><div><h4>Dlaczego Kościół katolicki?</h4><p>Apologetyczna odpowiedź na najważniejsze pytania.</p><a class="more" href="#">Oglądaj →</a></div></article>
-        <article class="list-item"><div class="thumb">▶</div><div><h4>Ojcowie Kościoła a Tradycja</h4><p>Świadectwo starożytnego chrześcijaństwa.</p><a class="more" href="#">Oglądaj →</a></div></article>
-        <article class="list-item"><div class="thumb">▶</div><div><h4>Najczęstsze zarzuty wobec katolicyzmu</h4><p>Krótko, rzeczowo i ze źródłami.</p><a class="more" href="#">Oglądaj →</a></div></article>
+        <p style="color:var(--muted);margin-top:18px">Materiały wideo będą dodawane w tej sekcji.</p>
       </div>
-    </div>
+    <div style="text-align:center;margin-top:22px"><a class="btn primary" href="apologetyka.html">Zobacz całą bibliotekę apologetyczną →</a></div>
+  </div>
   </section>
 
   <section class="dark-section" id="zarzuty">
@@ -206,7 +213,7 @@
       </div>
       <div class="answer-grid">
         <a class="answer" href="#"><span class="aicon">✝</span><span>Protestantyzm</span></a>
-        <a class="answer" href="prawoslawie.html"><span class="aicon">⛪</span><span>Prawosławie</span></a>
+        <a class="answer" href="#"><span class="aicon">⛪</span><span>Prawosławie</span></a>
         <a class="answer" href="#"><span class="aicon">?</span><span>Ateizm</span></a>
         <a class="answer" href="#"><span class="aicon">⚖</span><span>Zarzuty</span></a>
         <a class="answer" href="#"><span class="aicon">📜</span><span>Ojcowie Kościoła</span></a>
@@ -251,6 +258,5 @@ const quotes=[
 ];
 let i=0; const q=document.querySelector('.quote'); function rotate(){const [t,r]=quotes[i]; q.innerHTML='„'+t.replace(/^„|”$/g,'')+'”<span>'+r+'</span>'; i=(i+1)%quotes.length;} setInterval(rotate,5500);
 </script>
-<script src="calendar-1954.js"></script>
 </body>
 </html>
