@@ -79,14 +79,28 @@ nav{border-top:1px solid rgba(201,164,91,.2)}
 .thumb img{display:block;width:100%;height:100%;object-fit:cover;min-width:0;min-height:0}
 .list-item h4{margin:2px 0 5px;font-size:18px;line-height:1.25}
 .list-item p{margin:0 0 7px;color:var(--muted);font-size:13px;line-height:1.45}
-.saint-day{background:linear-gradient(180deg,#fffaf0,#f0e5d0);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.saint-day-card{background:var(--white);border:1px solid var(--line);padding:30px;position:relative;box-shadow:0 8px 24px rgba(40,30,15,.04)}
-.saint-day-card:before{content:"✠";position:absolute;right:25px;top:15px;color:rgba(201,164,91,.35);font-size:34px}
-.saint-day-card h4{font-size:25px;margin:0 40px 8px 0}
-.saint-day-rank{display:inline-block;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:bold;margin-bottom:7px}
-.saint-day-card p{margin:0;color:var(--muted);font-size:15px}
-.saint-day-link{display:block;transition:.2s}.saint-day-link:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(40,30,15,.09)}
-.saint-day-note{text-align:center;color:var(--muted);font-size:13px;margin:18px auto 0;max-width:900px}
+.saint-day{background:linear-gradient(180deg,#fffaf0 0%,#f0e5d0 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.saint-day-card{background:var(--white);border:1px solid var(--line);padding:34px;position:relative;box-shadow:0 10px 30px rgba(40,30,15,.07);overflow:hidden}
+.saint-day-card:before{content:"✠";position:absolute;right:24px;top:14px;color:rgba(201,164,91,.22);font-size:42px}
+.saint-day-date{font-size:clamp(21px,3vw,29px);letter-spacing:.2px;color:var(--ink);margin-bottom:16px;text-transform:capitalize}
+.saint-day-grid{display:grid;gap:16px}
+.saint-day-entry{position:relative;background:#fffdf8;border:1px solid var(--line);padding:25px 27px 24px}
+.saint-day-entry.primary{border-top:4px solid var(--gold);padding-top:22px}
+.saint-day-entry.commemoration{background:#f8f1e4;border-left:4px solid var(--gold)}
+.saint-day-entry.ember{background:linear-gradient(135deg,#f7efe0,#fffdf8);border-left:4px solid #8c6827}
+.saint-day-rank{display:inline-flex;align-items:center;gap:8px;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:bold;margin-bottom:8px}
+.saint-day-rank:before{content:"✦";color:var(--gold)}
+.saint-day-entry h4{font-size:clamp(25px,4vw,38px);line-height:1.12;margin:0 50px 10px 0}
+.saint-day-entry p{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
+.saint-day-badge{display:inline-block;margin:0 0 12px;padding:5px 9px;border:1px solid rgba(201,164,91,.55);color:#7e5d25;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:bold;background:#fffaf0}
+.saint-day-link{display:block;color:inherit;transition:.2s}.saint-day-link:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(40,30,15,.11)}
+.saint-day-actions{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.saint-day-read{display:inline-block;color:#8d6728;font-weight:bold;font-size:13px}
+.saint-day-note{text-align:center;color:var(--muted);font-size:13px;margin:20px auto 0;max-width:900px}
+.saint-day-ember{display:flex;gap:14px;align-items:flex-start;margin-top:16px;padding:16px 18px;background:#f7eedf;border:1px solid var(--line)}
+.saint-day-ember .ember-cross{color:var(--gold);font-size:22px;line-height:1}
+.saint-day-ember strong{color:var(--ink)}
+@media(max-width:600px){.saint-day-card{padding:22px 16px}.saint-day-entry{padding:20px 18px}.saint-day-entry h4{font-size:27px}.saint-day-entry p{font-size:15px}}
 .dark-section{background:var(--navy);color:#fff}
 .answers{width:min(var(--max),100%);margin:auto;padding:68px 32px}
 .dark-section .section-title h3{color:#f8efd9}
@@ -162,16 +176,7 @@ footer strong{color:var(--gold2)}
 
 <section class="section saint-day" id="swieci-dnia">
  <div class="section-title"><div class="eyebrow">Kalendarz liturgiczny</div><h3>Święci dnia dzisiejszego</h3></div>
- <div class="saint-day-card" data-saints-today>
-  <div class="saint-day-date">16 września 2026</div>
-  <div class="saint-day-grid">
-    <article class="saint-day-card">
-      <div class="saint-day-rank">Semiduplex</div>
-      <h4><a href="swieci-16-wrzesnia.html">Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy</a></h4>
-      <p>Wspomnienie papieża Korneliusza i biskupa Kartaginy Cypriana, którzy ponieśli śmierć męczeńską w obronie wiary.</p>
-    </article>
-  </div>
-</div>
+ <div class="saint-day-card" data-saints-today aria-live="polite"></div>
  <p class="saint-day-note">Kalendarz oparty na układzie rzymskim <strong>Divino Afflatu – 1954</strong>, czyli stanie sprzed reformy z 1955 r. Sekcja zmienia się automatycznie każdego dnia.</p>
 </section>
 
@@ -340,7 +345,7 @@ const fixed = {
     '09-08': {title:'Narodzenie Najświętszej Maryi Panny', rank:'Double II klasy', desc:'Uroczystość narodzenia Matki Bożej.'},
     '09-14': {title:'Podwyższenie Krzyża Świętego', rank:'Greater Double', desc:'Uroczystość Krzyża Chrystusa, znaku zbawienia.'},
     '09-15': {title:'Siedem Boleści Najświętszej Maryi Panny', rank:'Double II klasy', desc:'Święto współcierpienia Maryi z Synem.'},
-    '09-16': {title:'Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy', rank:'Semiduplex', desc:'Wspomnienie papieża Korneliusza i biskupa Kartaginy Cypriana, którzy ponieśli śmierć męczeńską w obronie wiary.', href:'swieci-16-wrzesnia.html'},
+    '09-16': {title:'Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy', rank:'Semiduplex', desc:'Wspomnienie dwóch pasterzy Kościoła, którzy ponieśli męczeństwo w III wieku.', href:'swieci-16-wrzesnia.html', commemoration:'Św. Eufemia, dziewica i męczennica, oraz święci Łucja i Geminian, męczennicy', ember:'Suche Dni wrześniowe — Środa Suchych Dni'},
     '09-24': {title:'Najświętsza Maryja Panna od Wykupu Niewolników', rank:'Greater Double', desc:'Święto maryjne związane z zakonem mercedariuszy i dziełem wykupu niewolników.'},
     '09-26': {title:'Święci Cyprian i Justyna, męczennicy', rank:'Simple', desc:'Wspomnienie świętych męczenników czczonych w tradycji Kościoła.'},
     '09-29': {title:'Poświęcenie kościoła św. Michała Archanioła', rank:'Double I klasy', desc:'Święto poświęcone św. Michałowi Archaniołowi.'},
@@ -411,27 +416,24 @@ const fixed = {
       const entries=[];
       if(item) entries.push(item);
       if(now.getDay()===0 && (!item || !/Niedziela/.test(item.title))){
-        entries.push({
-          title:'Niedziela — formularz niedzielny',
-          rank:'Niedziela',
-          desc:'W kalendarzu rzymskim z 1954 r. niedziela posiada własny formularz liturgiczny; o pierwszeństwie decydują zasady kalendarza.'
-        });
+        entries.push({title:'Niedziela — formularz niedzielny',rank:'Niedziela',desc:'W kalendarzu rzymskim z 1954 r. niedziela posiada własny formularz liturgiczny.'});
       }
-      if(!entries.length){
-        entries.push({
-          title:'Feria',
-          rank:'Dzień powszedni',
-          desc:'Dzień powszedni według kalendarza rzymskiego w stanie sprzed reformy z 1955 r.'
-        });
-      }
+      if(!entries.length) entries.push({title:'Feria',rank:'Dzień powszedni',desc:'Dzień powszedni według kalendarza rzymskiego sprzed reform z lat pięćdziesiątych.'});
       const label=now.toLocaleDateString('pl-PL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-      root.innerHTML='<div class="saint-day-date">'+label+'</div><div class="saint-day-grid">'+
-        entries.map(function(x){
-          const tag=x.href?'a':'article';
-          const href=x.href?' href="'+x.href+'" class="saint-day-card saint-day-link"':' class="saint-day-card"';
-          return '<'+tag+href+'><div class="saint-day-rank">'+x.rank+
-          '</div><h4>'+x.title+'</h4><p>'+x.desc+'</p></'+tag+'>';
-        }).join('')+'</div>';
+      let html='<div class="saint-day-date">'+label+'</div><div class="saint-day-grid">';
+      entries.forEach(function(x){
+        const cls='saint-day-entry primary'+(x.ember?' ember':'');
+        html+='<article class="'+cls+'"><div class="saint-day-rank">'+x.rank+'</div>';
+        if(x.ember) html+='<div class="saint-day-badge">✠ '+x.ember+'</div>';
+        html+='<h4>'+x.title+'</h4><p>'+x.desc+'</p>';
+        if(x.href) html+='<div class="saint-day-actions"><a class="saint-day-read" href="'+x.href+'">Pełne wspomnienie i biografie →</a></div>';
+        html+='</article>';
+        if(x.commemoration){
+          html+='<article class="saint-day-entry commemoration"><div class="saint-day-rank">Kommemoracja</div><h4>'+x.commemoration+'</h4><p>Wspomnienie liturgiczne świętych Eufemii, Łucji i Geminiana, włączone do tego samego odnośnika z biografiami i materiałem ikonograficznym.</p></article>';
+        }
+      });
+      html+='</div><div class="saint-day-ember"><div class="ember-cross">✠</div><div><strong>Suche Dni</strong><br>W dniach Suchych Kościół tradycyjnie łączył post i modlitwę z dziękczynieniem oraz prośbą o Boże błogosławieństwo dla życia Kościoła i darów ziemi.</div></div>';
+      root.innerHTML=html;
     }
     function start(){renderCalendar();}
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start,{once:true});
