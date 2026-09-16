@@ -164,10 +164,11 @@ footer strong{color:var(--gold2)}
    <article class="list-item"><div class="thumb"><img src="assets/thumb-compendium.jpg" alt="Wielkie Kompendium Apologetyczne"></div><div><h4>Wielkie Kompendium Apologetyczne</h4><p>Obalenie głównych zarzutów wobec wiary katolickiej.</p><a class="more" href="article-apologetyka-zarzuty.html">Przeczytaj →</a></div></article>
   </div>
   <div class="latest-column" id="multimedia">
-   <h3>Najnowsze materiały wideo</h3>
-   <article class="list-item"><div class="thumb">▶</div><div><h4>Dlaczego Kościół katolicki?</h4><p>Apologetyczna odpowiedź na najważniejsze pytania.</p><a class="more" href="#">Oglądaj →</a></div></article>
-   <article class="list-item"><div class="thumb">▶</div><div><h4>Ojcowie Kościoła a Tradycja</h4><p>Świadectwo starożytnego chrześcijaństwa.</p><a class="more" href="#">Oglądaj →</a></div></article>
-   <article class="list-item"><div class="thumb">▶</div><div><h4>Najczęstsze zarzuty wobec katolicyzmu</h4><p>Krótko, rzeczowo i ze źródłami.</p><a class="more" href="#">Oglądaj →</a></div></article>
+   <h3>Najnowszy film z YouTube</h3>
+   <article class="list-item">
+    <div class="thumb"><img id="latest-youtube-thumb" src="https://i.ytimg.com/vi/0/hqdefault.jpg" alt="Najnowszy film z YouTube"></div>
+    <div><h4 id="latest-youtube-title">Najnowszy film</h4><p id="latest-youtube-date">Ładowanie…</p><a class="more" id="latest-youtube-link" href="#" target="_blank" rel="noopener">Oglądaj →</a></div>
+   </article>
   </div>
  </div>
 </section>
@@ -208,6 +209,24 @@ footer strong{color:var(--gold2)}
  <div class="copyright">Portal apologetyczny — Adrian Żalejko</div>
  <div><strong>Rz 12,21</strong><br><span class="copyright">„Nie daj się zwyciężyć złu, ale zło dobrem zwyciężaj.”</span></div>
 </div></footer>
+
+<script>
+fetch('latest-youtube.json?v='+Date.now())
+ .then(r=>r.json())
+ .then(v=>{
+   if(!v || !v.id) return;
+   const title=document.getElementById('latest-youtube-title');
+   const date=document.getElementById('latest-youtube-date');
+   const link=document.getElementById('latest-youtube-link');
+   const thumb=document.getElementById('latest-youtube-thumb');
+   title.textContent=v.title || 'Najnowszy film';
+   date.textContent=v.published ? new Date(v.published).toLocaleDateString('pl-PL') : '';
+   link.href='https://www.youtube.com/watch?v='+encodeURIComponent(v.id);
+   thumb.src='https://i.ytimg.com/vi/'+encodeURIComponent(v.id)+'/hqdefault.jpg';
+   thumb.alt=v.title || 'Najnowszy film z YouTube';
+ })
+ .catch(()=>{});
+</script>
 
 <script>
 const quotes=[
