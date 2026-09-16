@@ -62,7 +62,7 @@ nav{border-top:1px solid rgba(201,164,91,.2)}
 .latest-column>h3{font-size:23px;margin:0 0 15px}
 .list-item{display:grid;grid-template-columns:150px 1fr;gap:18px;background:var(--white);border:1px solid var(--line);padding:12px;margin-bottom:14px;min-width:0}
 .thumb{height:100px;background:linear-gradient(135deg,#263c46,#0e1821);display:grid;place-items:center;color:var(--gold2);font-size:30px;overflow:hidden}
-.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb img{display:block;width:100%;height:100%;object-fit:cover;min-width:0;min-height:0}
 .list-item h4{margin:2px 0 5px;font-size:18px;line-height:1.25}
 .list-item p{margin:0 0 7px;color:var(--muted);font-size:13px;line-height:1.45}
 .saint-day{background:linear-gradient(180deg,#fffaf0,#f0e5d0);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -130,7 +130,16 @@ footer strong{color:var(--gold2)}
 
 <section class="section saint-day" id="swieci-dnia">
  <div class="section-title"><div class="eyebrow">Kalendarz liturgiczny</div><h3>Święci dnia dzisiejszego</h3></div>
- <div class="saint-day-card" data-saints-today><p>Ładowanie kalendarza...</p></div>
+ <div class="saint-day-card" data-saints-today>
+  <div class="saint-day-date">16 września 2026</div>
+  <div class="saint-day-grid">
+    <article class="saint-day-card">
+      <div class="saint-day-rank">Semidouble</div>
+      <h4>Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy</h4>
+      <p>Wspomnienie papieża Korneliusza i biskupa Kartaginy Cypriana, którzy ponieśli śmierć męczeńską w obronie wiary.</p>
+    </article>
+  </div>
+</div>
  <p class="saint-day-note">Kalendarz oparty na układzie rzymskim <strong>Divino Afflatu – 1954</strong>, czyli stanie sprzed reformy z 1955 r. Sekcja zmienia się automatycznie każdego dnia.</p>
 </section>
 
@@ -150,9 +159,9 @@ footer strong{color:var(--gold2)}
    <h3>Najnowsze artykuły</h3>
    <article class="list-item"><div class="thumb"><img src="cyprian-rzym.png" alt="Święty Cyprian z Kartaginy i Rzym"></div><div><h4>Św. Cyprian z Kartaginy — Rzym, Katedra Piotra i jedność Kościoła</h4><p>List 59, List 48 i List 68 oraz spór ze Stefanem I.</p><a class="more" href="article-cyprian-rzym.html">Czytaj artykuł →</a></div></article>
    <article class="list-item"><div class="thumb"><img src="maryja.jpg" alt="Najświętsza Maryja Panna"></div><div><h4>Najświętsza Maryja Panna Jest Wolna od Wszelkiego Grzechu!</h4><p>Arka Nowego Przymierza, typologia biblijna i świadectwo Ojców Kościoła.</p><a class="more" href="article-maryja.html">Czytaj artykuł →</a></div></article>
-   <article class="list-item"><div class="thumb">✠</div><div><h4>Dlaczego Kościół Katolicki?</h4><p>O Boskim ustanowieniu, znamionach prawdy i Mistycznym Ciele Chrystusa.</p><a class="more" href="church-of-christ.html">Przeczytaj →</a></div></article>
-   <article class="list-item"><div class="thumb">📜</div><div><h4>Ojcowie Kościoła a Święta Tradycja</h4><p>Świadkowie i strażnicy niezmiennego depozytu wiary.</p><a class="more" href="article-ojcowie-tradycja.html">Przeczytaj →</a></div></article>
-   <article class="list-item"><div class="thumb">📚</div><div><h4>Wielkie Kompendium Apologetyczne</h4><p>Obalenie głównych zarzutów wobec wiary katolickiej.</p><a class="more" href="article-apologetyka-zarzuty.html">Przeczytaj →</a></div></article>
+   <article class="list-item"><div class="thumb"><img src="assets/thumb-church.jpg" alt="Dlaczego Kościół Katolicki?"></div><div><h4>Dlaczego Kościół Katolicki?</h4><p>O Boskim ustanowieniu, znamionach prawdy i Mistycznym Ciele Chrystusa.</p><a class="more" href="church-of-christ.html">Przeczytaj →</a></div></article>
+   <article class="list-item"><div class="thumb"><img src="assets/thumb-fathers.jpg" alt="Ojcowie Kościoła a Święta Tradycja"></div><div><h4>Ojcowie Kościoła a Święta Tradycja</h4><p>Świadkowie i strażnicy niezmiennego depozytu wiary.</p><a class="more" href="article-ojcowie-tradycja.html">Przeczytaj →</a></div></article>
+   <article class="list-item"><div class="thumb"><img src="assets/thumb-compendium.jpg" alt="Wielkie Kompendium Apologetyczne"></div><div><h4>Wielkie Kompendium Apologetyczne</h4><p>Obalenie głównych zarzutów wobec wiary katolickiej.</p><a class="more" href="article-apologetyka-zarzuty.html">Przeczytaj →</a></div></article>
   </div>
   <div class="latest-column" id="multimedia">
    <h3>Najnowsze materiały wideo</h3>
@@ -216,6 +225,172 @@ const quotes=[
 let qi=0;const q=document.querySelector('.quote');
 setInterval(()=>{const [t,r]=quotes[qi];q.innerHTML='„'+t+'”<span>'+r+'</span>';qi=(qi+1)%quotes.length},5500);
 </script>
-<script src="calendar-1954.js"></script>
+
+<script>
+/* Samodzielny kalendarz rzymski — stan sprzed reformy 1955 r. */
+(function(){
+  try {
+const fixed = {
+    '01-01': {title:'Obrzezanie Pańskie i Oktawa Narodzenia Pańskiego', rank:'Double II klasy', desc:'Dzień związany z tajemnicą Wcielenia i Oktawą Narodzenia Pańskiego.'},
+    '01-05': {title:'Wigilia Objawienia Pańskiego', rank:'Semidouble', desc:'Wigilia uroczystości Objawienia Pańskiego.'},
+    '01-06': {title:'Objawienie Pańskie', rank:'Double I klasy', desc:'Uroczystość objawienia Chrystusa narodom.'},
+    '01-13': {title:'Oktawa Objawienia Pańskiego', rank:'Greater Double', desc:'Zakończenie oktawy Objawienia Pańskiego.'},
+    '01-14': {title:'Św. Hilary, biskup, wyznawca i doktor Kościoła', rank:'Double', desc:'Wspomnienie wielkiego obrońcy wiary katolickiej przeciw arianizmowi.'},
+    '01-17': {title:'Św. Antoni, opat', rank:'Double', desc:'Ojciec życia monastycznego i wzór walki duchowej.'},
+    '01-18': {title:'Katedra św. Piotra w Rzymie', rank:'Greater Double', desc:'Święto związane z rzymską Katedrą św. Piotra i posługą Apostoła.'},
+    '01-20': {title:'Św. Fabian, papież i męczennik, oraz św. Sebastian, męczennik', rank:'Double', desc:'Wspomnienie dwóch starożytnych męczenników Kościoła rzymskiego.'},
+    '01-21': {title:'Św. Agnieszka, dziewica i męczennica', rank:'Double', desc:'Dziewica i męczennica Kościoła rzymskiego, czczona od starożytności.'},
+    '01-24': {title:'Św. Tymoteusz, biskup i męczennik', rank:'Double', desc:'Uczeń św. Pawła i adresat jego listów pasterskich.'},
+    '01-25': {title:'Nawrócenie św. Pawła Apostoła', rank:'Greater Double', desc:'Święto upamiętniające spotkanie Szawła z Chrystusem i jego powołanie apostolskie.'},
+    '01-26': {title:'Św. Polikarp, biskup i męczennik', rank:'Double', desc:'Uczeń tradycji apostolskiej i biskup Smyrny.'},
+    '01-27': {title:'Św. Jan Chryzostom, biskup, wyznawca i doktor Kościoła', rank:'Double', desc:'Wielki kaznodzieja i Ojciec Kościoła Wschodu.'},
+    '01-29': {title:'Św. Franciszek Salezy, biskup, wyznawca i doktor Kościoła', rank:'Double', desc:'Biskup Genewy i nauczyciel życia duchowego.'},
+    '01-31': {title:'Św. Jan Bosko, wyznawca', rank:'Double', desc:'Kapłan i wychowawca młodzieży, założyciel zgromadzenia salezjańskiego.'},
+    '02-02': {title:'Oczyszczenie Najświętszej Maryi Panny', rank:'Double II klasy', desc:'Święto związane z ofiarowaniem Chrystusa w świątyni i oczyszczeniem Maryi.'},
+    '02-03': {title:'Św. Błażej, biskup i męczennik', rank:'Simple', desc:'Biskup i męczennik czczony jako szczególny orędownik.'},
+    '02-05': {title:'Św. Agata, dziewica i męczennica', rank:'Double', desc:'Dziewica i męczennica sycylijska.'},
+    '02-10': {title:'Św. Scholastyka, dziewica', rank:'Double', desc:'Siostra św. Benedykta i wzór życia poświęconego Bogu.'},
+    '02-11': {title:'Objawienie Najświętszej Maryi Panny Niepokalanej', rank:'Greater Double', desc:'Święto objawień Najświętszej Maryi Panny w Lourdes.'},
+    '02-14': {title:'Św. Walenty, kapłan i męczennik', rank:'Simple', desc:'Wspomnienie starożytnego męczennika.'},
+    '02-22': {title:'Katedra św. Piotra Apostoła', rank:'Double', desc:'Święto rzymskiej tradycji apostolskiej związanej z posługą Piotra.'},
+    '03-07': {title:'Św. Tomasz z Akwinu, wyznawca i doktor Kościoła', rank:'Double', desc:'Doktor Kościoła i jeden z najwybitniejszych teologów katolickich.'},
+    '03-17': {title:'Św. Patryk, biskup i wyznawca', rank:'Double', desc:'Apostoł Irlandii i biskup Kościoła starożytnego.'},
+    '03-19': {title:'Św. Józef, Oblubieniec Najświętszej Maryi Panny', rank:'Double I klasy', desc:'Opiekun Chrystusa i Oblubieniec Najświętszej Maryi Panny.'},
+    '03-25': {title:'Zwiastowanie Najświętszej Maryi Pannie', rank:'Double I klasy', desc:'Uroczystość Wcielenia Syna Bożego za zgodą Maryi.'},
+    '04-04': {title:'Św. Izydor, biskup, wyznawca i doktor Kościoła', rank:'Double', desc:'Biskup Sewilli i jeden z najważniejszych encyklopedystów chrześcijańskiej starożytności.'},
+    '04-11': {title:'Św. Leon I, papież, wyznawca i doktor Kościoła', rank:'Double', desc:'Papież i doktor Kościoła, obrońca wiary chrystologicznej.'},
+    '04-23': {title:'Św. Wojciech, biskup i męczennik', rank:'Double', desc:'Biskup Pragi i męczennik, patron Polski.'},
+    '04-25': {title:'Św. Marek Ewangelista', rank:'Double II klasy', desc:'Autor drugiej Ewangelii i towarzysz apostolski.'},
+    '04-29': {title:'Św. Piotr z Werony, męczennik', rank:'Double', desc:'Dominikanin i męczennik.'},
+    '05-01': {title:'Święci Filip i Jakub, Apostołowie', rank:'Double II klasy', desc:'Święto dwóch Apostołów Chrystusa.'},
+    '05-02': {title:'Św. Atanazy, biskup, wyznawca i doktor Kościoła', rank:'Double', desc:'Wielki obrońca bóstwa Chrystusa przeciw arianizmowi.'},
+    '05-03': {title:'Znalezienie Krzyża Świętego', rank:'Double II klasy', desc:'Święto odnalezienia relikwii Krzyża Pańskiego.'},
+    '05-06': {title:'Św. Jan Apostoł przed Bramą Łacińską', rank:'Greater Double', desc:'Święto pamiątki męczeństwa św. Jana Apostoła.'},
+    '05-08': {title:'Objawienie św. Michała Archanioła', rank:'Greater Double', desc:'Święto poświęcone szczególnej czci św. Michała Archanioła.'},
+    '05-26': {title:'Św. Filip Neri, kapłan i wyznawca', rank:'Double', desc:'Kapłan rzymski i założyciel Oratorium.'},
+    '06-13': {title:'Św. Antoni z Padwy, wyznawca i doktor Kościoła', rank:'Double', desc:'Franciszkanin, kaznodzieja i doktor Kościoła.'},
+    '06-24': {title:'Narodzenie św. Jana Chrzciciela', rank:'Double I klasy', desc:'Uroczystość narodzenia Poprzednika Pańskiego.'},
+    '06-29': {title:'Święci Piotr i Paweł, Apostołowie', rank:'Double I klasy', desc:'Uroczystość dwóch wielkich Apostołów i filarów Kościoła.'},
+    '06-30': {title:'Wspomnienie św. Pawła Apostoła', rank:'Greater Double', desc:'Dzień po uroczystości świętych Piotra i Pawła poświęcony szczególnie Apostołowi Narodów.'},
+    '07-02': {title:'Nawiedzenie Najświętszej Maryi Panny', rank:'Double II klasy', desc:'Maryja nawiedza Elżbietę i niesie jej Chrystusa.'},
+    '07-03': {title:'Św. Leon II, papież i wyznawca', rank:'Semidouble', desc:'Wspomnienie papieża Kościoła rzymskiego.'},
+    '07-11': {title:'Św. Benedykt, opat', rank:'Double', desc:'Patriarcha zachodniego monastycyzmu i autor Reguły.'},
+    '07-16': {title:'Najświętsza Maryja Panna z Góry Karmel', rank:'Double', desc:'Święto maryjne związane z duchowością karmelitańską.'},
+    '07-22': {title:'Św. Maria Magdalena', rank:'Double', desc:'Świadek Zmartwychwstania Pańskiego i głosicielka Dobrej Nowiny Apostołom.'},
+    '07-25': {title:'Św. Jakub Apostoł', rank:'Double II klasy', desc:'Apostoł i pierwszy z grona Dwunastu, który poniósł męczeństwo.'},
+    '07-26': {title:'Św. Anna, matka Najświętszej Maryi Panny', rank:'Double', desc:'Matka Maryi według starożytnej tradycji Kościoła.'},
+    '08-05': {title:'Dedykacja Bazyliki Najświętszej Maryi Panny Większej', rank:'Greater Double', desc:'Święto rzymskiej bazyliki poświęconej Najświętszej Maryi Pannie.'},
+    '08-06': {title:'Przemienienie Pańskie', rank:'Double II klasy', desc:'Objawienie chwały Chrystusa na górze Tabor.'},
+    '08-10': {title:'Św. Wawrzyniec, diakon i męczennik', rank:'Double II klasy', desc:'Rzymski diakon i męczennik.'},
+    '08-15': {title:'Wniebowzięcie Najświętszej Maryi Panny', rank:'Double I klasy', desc:'Uroczystość wzięcia Maryi z duszą i ciałem do chwały niebieskiej.'},
+    '08-20': {title:'Św. Bernard, opat i doktor Kościoła', rank:'Double', desc:'Cysters, kaznodzieja i doktor Kościoła.'},
+    '08-24': {title:'Św. Bartłomiej Apostoł', rank:'Double II klasy', desc:'Jeden z Dwunastu Apostołów.'},
+    '08-29': {title:'Ścięcie św. Jana Chrzciciela', rank:'Double', desc:'Pamiątka męczeńskiej śmierci Poprzednika Pańskiego.'},
+    '09-08': {title:'Narodzenie Najświętszej Maryi Panny', rank:'Double II klasy', desc:'Uroczystość narodzenia Matki Bożej.'},
+    '09-14': {title:'Podwyższenie Krzyża Świętego', rank:'Greater Double', desc:'Uroczystość Krzyża Chrystusa, znaku zbawienia.'},
+    '09-15': {title:'Siedem Boleści Najświętszej Maryi Panny', rank:'Double II klasy', desc:'Święto współcierpienia Maryi z Synem.'},
+    '09-16': {title:'Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy', rank:'Semidouble', desc:'Wspomnienie papieża Korneliusza i biskupa Kartaginy Cypriana, którzy ponieśli śmierć męczeńską w obronie wiary.'},
+    '09-24': {title:'Najświętsza Maryja Panna od Wykupu Niewolników', rank:'Greater Double', desc:'Święto maryjne związane z zakonem mercedariuszy i dziełem wykupu niewolników.'},
+    '09-26': {title:'Święci Cyprian i Justyna, męczennicy', rank:'Simple', desc:'Wspomnienie świętych męczenników czczonych w tradycji Kościoła.'},
+    '09-29': {title:'Poświęcenie kościoła św. Michała Archanioła', rank:'Double I klasy', desc:'Święto poświęcone św. Michałowi Archaniołowi.'},
+    '09-30': {title:'Św. Hieronim, kapłan, wyznawca i doktor Kościoła', rank:'Double', desc:'Doktor Kościoła, tłumacz Pisma Świętego na łacinę i wielki egzegeta.'},
+    '10-01': {title:'Św. Remigiusz, biskup i wyznawca', rank:'Simple', desc:'Biskup Reims związany z chrztem króla Chlodwiga.'},
+    '10-02': {title:'Święci Aniołowie Stróżowie', rank:'Greater Double', desc:'Święto poświęcone opiece aniołów nad wiernymi.'},
+    '10-04': {title:'Św. Franciszek z Asyżu, wyznawca', rank:'Greater Double', desc:'Założyciel zakonu franciszkańskiego i naśladowca Chrystusa ubogiego.'},
+    '10-07': {title:'Najświętsza Maryja Panna Różańcowa', rank:'Double II klasy', desc:'Święto związane z modlitwą różańcową.'},
+    '10-18': {title:'Św. Łukasz Ewangelista', rank:'Double II klasy', desc:'Ewangelista i towarzysz św. Pawła.'},
+    '10-28': {title:'Święci Szymon i Juda Tadeusz, Apostołowie', rank:'Double II klasy', desc:'Święto dwóch Apostołów Chrystusa.'},
+    '11-01': {title:'Wszystkich Świętych', rank:'Double I klasy', desc:'Uroczystość całego Kościoła triumfującego w niebie.'},
+    '11-02': {title:'Wspomnienie wszystkich wiernych zmarłych', rank:'Double', desc:'Dzień modlitwy za dusze wiernych zmarłych.'},
+    '11-04': {title:'Św. Karol Boromeusz, biskup i wyznawca', rank:'Double', desc:'Biskup Mediolanu i reformator Kościoła po Soborze Trydenckim.'},
+    '11-09': {title:'Poświęcenie Bazyliki Najświętszego Zbawiciela', rank:'Double II klasy', desc:'Święto rocznicy poświęcenia Bazyliki Laterańskiej.'},
+    '11-22': {title:'Św. Cecylia, dziewica i męczennica', rank:'Double', desc:'Rzymska dziewica i męczennica, patronka muzyki kościelnej.'},
+    '11-23': {title:'Św. Klemens I, papież i męczennik', rank:'Double', desc:'Jeden z najstarszych biskupów Rzymu po św. Piotrze.'},
+    '11-25': {title:'Św. Katarzyna, dziewica i męczennica', rank:'Double', desc:'Dziewica i męczennica Aleksandrii.'},
+    '11-30': {title:'Św. Andrzej Apostoł', rank:'Double II klasy', desc:'Pierwszy powołany spośród Apostołów według tradycji Janowej.'},
+    '12-02': {title:'Św. Bibiana, dziewica i męczennica', rank:'Semidouble', desc:'Rzymska dziewica i męczennica.'},
+    '12-03': {title:'Św. Franciszek Ksawery, wyznawca', rank:'Greater Double', desc:'Jeden z wielkich misjonarzy czasów nowożytnych.'},
+    '12-06': {title:'Św. Mikołaj, biskup i wyznawca', rank:'Double', desc:'Biskup Miry i jeden z najbardziej czczonych świętych starożytności.'},
+    '12-08': {title:'Niepokalane Poczęcie Najświętszej Maryi Panny', rank:'Double I klasy', desc:'Uroczystość tajemnicy zachowania Maryi od zmazy grzechu pierworodnego.'},
+    '12-13': {title:'Św. Łucja, dziewica i męczennica', rank:'Double', desc:'Syrakuzańska dziewica i męczennica.'},
+    '12-21': {title:'Św. Tomasz Apostoł', rank:'Double II klasy', desc:'Apostoł, który wyznał wiarę w Zmartwychwstałego Chrystusa.'},
+    '12-25': {title:'Narodzenie Pana naszego Jezusa Chrystusa', rank:'Double I klasy', desc:'Uroczystość Narodzenia Chrystusa i początek oktawy Bożego Narodzenia.'},
+    '12-26': {title:'Św. Szczepan, pierwszy męczennik', rank:'Double II klasy', desc:'Pierwszy męczennik Kościoła.'},
+    '12-27': {title:'Św. Jan Apostoł i Ewangelista', rank:'Double II klasy', desc:'Apostoł umiłowany i autor czwartej Ewangelii.'},
+    '12-28': {title:'Święci Młodziankowie, męczennicy', rank:'Double II klasy', desc:'Dzieci zabite w Betlejem z rozkazu Heroda.'},
+    '12-29': {title:'Św. Tomasz, biskup i męczennik', rank:'Double', desc:'Św. Tomasz Becket, arcybiskup Canterbury i męczennik.'},
+    '12-31': {title:'Św. Sylwester I, papież i wyznawca', rank:'Double', desc:'Papież z epoki Konstantyna Wielkiego.'}
+  };
+    function easter(year){
+      const a=year%19,b=Math.floor(year/100),c=year%100,d=Math.floor(b/4),e=b%4,
+      f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),
+      h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,
+      l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451),
+      month=Math.floor((h+l-7*m+114)/31),day=((h+l-7*m+114)%31)+1;
+      return new Date(Date.UTC(year,month-1,day));
+    }
+    function addDays(d,n){const x=new Date(d);x.setUTCDate(x.getUTCDate()+n);return x;}
+    function key(d){return String(d.getUTCMonth()+1).padStart(2,'0')+'-'+String(d.getUTCDate()).padStart(2,'0');}
+    function movable(year){
+      const e=easter(year), m={};
+      const put=(offset,title,rank,desc)=>{
+        m[addDays(e,offset).toISOString().slice(0,10)]={title,rank,desc};
+      };
+      put(-46,'Środa Popielcowa','Feria uprzywilejowana','Początek Wielkiego Postu.');
+      put(-7,'Niedziela Palmowa Męki Pańskiej','Semidouble','Pamiątka uroczystego wjazdu Chrystusa do Jerozolimy i początek Wielkiego Tygodnia.');
+      put(-3,'Wielka Środa','Feria uprzywilejowana','Dzień Wielkiego Tygodnia przygotowujący do Triduum Paschalnego.');
+      put(-2,'Wielki Czwartek','Feria uprzywilejowana','Pamiątka ustanowienia Najświętszej Eucharystii i kapłaństwa.');
+      put(-1,'Wielki Piątek Męki Pańskiej','Feria uprzywilejowana','Dzień Męki i Śmierci naszego Pana Jezusa Chrystusa.');
+      put(0,'Niedziela Zmartwychwstania Pańskiego','Double I klasy','Największa uroczystość roku liturgicznego: Zmartwychwstanie Chrystusa.');
+      put(1,'Poniedziałek w Oktawie Wielkanocy','Double I klasy','Dzień oktawy Zmartwychwstania Pańskiego.');
+      put(39,'Wniebowstąpienie Pańskie','Double I klasy','Chrystus wstępuje do Ojca.');
+      put(49,'Zesłanie Ducha Świętego','Double I klasy','Uroczystość przyjścia Ducha Świętego na Apostołów.');
+      put(56,'Uroczystość Trójcy Przenajświętszej','Double I klasy','Uroczystość jednej natury Boga w Trzech Osobach.');
+      put(60,'Boże Ciało — Uroczystość Najświętszego Ciała Chrystusa','Double I klasy','Uroczystość realnej obecności Chrystusa w Najświętszym Sakramencie.');
+      put(68,'Najświętsze Serce Pana Jezusa','Double I klasy','Uroczystość Najświętszego Serca Jezusa.');
+      return m;
+    }
+    function renderCalendar(){
+      const root=document.querySelector('[data-saints-today]');
+      if(!root) return;
+      const now=new Date();
+      const year=now.getFullYear();
+      const utcDate=new Date(Date.UTC(year,now.getMonth(),now.getDate()));
+      const item=movable(year)[utcDate.toISOString().slice(0,10)] || fixed[key(utcDate)];
+      const entries=[];
+      if(item) entries.push(item);
+      if(now.getDay()===0 && (!item || !/Niedziela/.test(item.title))){
+        entries.push({
+          title:'Niedziela — formularz niedzielny',
+          rank:'Niedziela',
+          desc:'W kalendarzu rzymskim z 1954 r. niedziela posiada własny formularz liturgiczny; o pierwszeństwie decydują zasady kalendarza.'
+        });
+      }
+      if(!entries.length){
+        entries.push({
+          title:'Feria',
+          rank:'Dzień powszedni',
+          desc:'Dzień powszedni według kalendarza rzymskiego w stanie sprzed reformy z 1955 r.'
+        });
+      }
+      const label=now.toLocaleDateString('pl-PL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+      root.innerHTML='<div class="saint-day-date">'+label+'</div><div class="saint-day-grid">'+
+        entries.map(function(x){
+          return '<article class="saint-day-card"><div class="saint-day-rank">'+x.rank+
+          '</div><h4>'+x.title+'</h4><p>'+x.desc+'</p></article>';
+        }).join('')+'</div>';
+    }
+    function start(){renderCalendar();}
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start,{once:true});
+    else start();
+  } catch(e) {
+    console.error('Kalendarz 1954:',e);
+    const root=document.querySelector('[data-saints-today]');
+    if(root) root.innerHTML='<div class="saint-day-date">Kalendarz liturgiczny</div><div class="saint-day-card"><h4>Odśwież stronę</h4><p>Nie udało się odczytać danych kalendarza.</p></div>';
+  }
+})();
+</script>
+
+<script src="calendar-1954.js" defer></script>
 </body>
 </html>
