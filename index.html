@@ -71,6 +71,7 @@ nav{border-top:1px solid rgba(201,164,91,.2)}
 .saint-day-card h4{font-size:25px;margin:0 40px 8px 0}
 .saint-day-rank{display:inline-block;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:bold;margin-bottom:7px}
 .saint-day-card p{margin:0;color:var(--muted);font-size:15px}
+.saint-day-link{display:block;transition:.2s}.saint-day-link:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(40,30,15,.09)}
 .saint-day-note{text-align:center;color:var(--muted);font-size:13px;margin:18px auto 0;max-width:900px}
 .dark-section{background:var(--navy);color:#fff}
 .answers{width:min(var(--max),100%);margin:auto;padding:68px 32px}
@@ -134,8 +135,8 @@ footer strong{color:var(--gold2)}
   <div class="saint-day-date">16 września 2026</div>
   <div class="saint-day-grid">
     <article class="saint-day-card">
-      <div class="saint-day-rank">Semidouble</div>
-      <h4>Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy</h4>
+      <div class="saint-day-rank">Semiduplex</div>
+      <h4><a href="swieci-16-wrzesnia.html">Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy</a></h4>
       <p>Wspomnienie papieża Korneliusza i biskupa Kartaginy Cypriana, którzy ponieśli śmierć męczeńską w obronie wiary.</p>
     </article>
   </div>
@@ -308,7 +309,7 @@ const fixed = {
     '09-08': {title:'Narodzenie Najświętszej Maryi Panny', rank:'Double II klasy', desc:'Uroczystość narodzenia Matki Bożej.'},
     '09-14': {title:'Podwyższenie Krzyża Świętego', rank:'Greater Double', desc:'Uroczystość Krzyża Chrystusa, znaku zbawienia.'},
     '09-15': {title:'Siedem Boleści Najświętszej Maryi Panny', rank:'Double II klasy', desc:'Święto współcierpienia Maryi z Synem.'},
-    '09-16': {title:'Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy', rank:'Semidouble', desc:'Wspomnienie papieża Korneliusza i biskupa Kartaginy Cypriana, którzy ponieśli śmierć męczeńską w obronie wiary.'},
+    '09-16': {title:'Św. Korneliusz, papież, i św. Cyprian, biskup, męczennicy', rank:'Semiduplex', desc:'Wspomnienie papieża Korneliusza i biskupa Kartaginy Cypriana, którzy ponieśli śmierć męczeńską w obronie wiary.', href:'swieci-16-wrzesnia.html'},
     '09-24': {title:'Najświętsza Maryja Panna od Wykupu Niewolników', rank:'Greater Double', desc:'Święto maryjne związane z zakonem mercedariuszy i dziełem wykupu niewolników.'},
     '09-26': {title:'Święci Cyprian i Justyna, męczennicy', rank:'Simple', desc:'Wspomnienie świętych męczenników czczonych w tradycji Kościoła.'},
     '09-29': {title:'Poświęcenie kościoła św. Michała Archanioła', rank:'Double I klasy', desc:'Święto poświęcone św. Michałowi Archaniołowi.'},
@@ -395,8 +396,10 @@ const fixed = {
       const label=now.toLocaleDateString('pl-PL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
       root.innerHTML='<div class="saint-day-date">'+label+'</div><div class="saint-day-grid">'+
         entries.map(function(x){
-          return '<article class="saint-day-card"><div class="saint-day-rank">'+x.rank+
-          '</div><h4>'+x.title+'</h4><p>'+x.desc+'</p></article>';
+          const tag=x.href?'a':'article';
+          const href=x.href?' href="'+x.href+'" class="saint-day-card saint-day-link"':' class="saint-day-card"';
+          return '<'+tag+href+'><div class="saint-day-rank">'+x.rank+
+          '</div><h4>'+x.title+'</h4><p>'+x.desc+'</p></'+tag+'>';
         }).join('')+'</div>';
     }
     function start(){renderCalendar();}
