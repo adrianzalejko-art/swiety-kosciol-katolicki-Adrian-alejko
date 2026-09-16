@@ -92,8 +92,11 @@ nav{border-top:1px solid rgba(201,164,91,.2)}
 .saint-day-grid{display:grid;gap:16px}
 .saint-day-entry{position:relative;background:#fffdf8;border:1px solid var(--line);padding:25px 27px 24px}
 .saint-day-entry.primary{border-top:4px solid var(--gold);padding-top:22px}
-.saint-day-entry.commemoration{background:#f8f1e4;border-left:4px solid var(--gold)}
-.saint-day-entry.ember{background:linear-gradient(135deg,#f7efe0,#fffdf8);border-left:4px solid #8c6827}
+.saint-day-entry.martyr{background:linear-gradient(135deg,#8f1d2c,#b72f3f);border-color:#721622;color:#fff}
+.saint-day-entry.martyr h4,.saint-day-entry.martyr p{color:#fff}
+.saint-day-entry.commemoration{background:linear-gradient(135deg,#f0d98c,#fff0bc);border-left:4px solid #b18a32;border-color:#c5a357}
+.saint-day-entry.ember{background:linear-gradient(135deg,#4f3766,#72538d);border-left:4px solid #5d4078;border-color:#5d4078;color:#fff}
+.saint-day-entry.ember h4,.saint-day-entry.ember p{color:#fff}
 .saint-day-rank{display:inline-flex;align-items:center;gap:8px;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:bold;margin-bottom:8px}
 .saint-day-rank:before{content:"✦";color:var(--gold)}
 .saint-day-entry h4{font-size:clamp(25px,4vw,38px);line-height:1.12;margin:0 50px 10px 0}
@@ -432,17 +435,19 @@ const fixed = {
       const label=now.toLocaleDateString('pl-PL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
       let html='<div class="saint-day-date">'+label+'</div><div class="saint-day-grid">';
       entries.forEach(function(x){
-        const cls='saint-day-entry primary'+(x.ember?' ember':'');
+        const isMartyr=/męczennik|męczennicy/i.test(x.title);
+        const cls='saint-day-entry primary'+(isMartyr?' martyr':'');
         html+='<article class="'+cls+'"><div class="saint-day-rank">'+x.rank+'</div>';
-        if(x.ember) html+='<div class="saint-day-badge">✠ '+x.ember+'</div>';
         html+='<h4>'+x.title+'</h4><p>'+x.desc+'</p>';
         if(x.href) html+='<div class="saint-day-actions"><a class="saint-day-read" href="'+x.href+'">Pełne wspomnienie i biografie →</a></div>';
         html+='</article>';
         if(x.commemoration){
           html+='<article class="saint-day-entry commemoration"><div class="saint-day-rank">Kommemoracja</div><h4>'+x.commemoration+'</h4><p>Wspomnienie liturgiczne świętych Eufemii, Łucji i Geminiana, włączone do tego samego odnośnika z biografiami i materiałem ikonograficznym.</p></article>';
         }
+        if(x.ember){
+          html+='<article class="saint-day-entry ember"><div class="saint-day-rank">Dni Suche</div><h4>'+x.ember+'</h4><p>Dzień pokutny, w którym Kościół łączy post i modlitwę z dziękczynieniem oraz prośbą o Boże błogosławieństwo.</p></article>';
+        }
       });
-      html+='</div><div class="saint-day-ember"><div class="ember-cross">✠</div><div><strong>Suche Dni</strong><br>W dniach Suchych Kościół tradycyjnie łączył post i modlitwę z dziękczynieniem oraz prośbą o Boże błogosławieństwo dla życia Kościoła i darów ziemi.</div></div>';
       root.innerHTML=html;
     }
     function start(){renderCalendar();}
