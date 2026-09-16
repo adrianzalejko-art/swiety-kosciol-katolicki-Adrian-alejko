@@ -1,20 +1,10 @@
-ŚWIĘTY KOŚCIÓŁ KATOLICKI — WERSJA 2
+# Automatyczny najnowszy film YouTube
 
-Pliki:
-- index.html — strona główna
-- apologetyka.html
-- magisterium.html
-- ojcowie-kosciola.html
-- zarzuty.html
-- multimedia.html
-- modlitwa.html
-- o-nas.html
+Ten pakiet zawiera:
+- `latest-youtube.json` — dane filmu wyświetlane przez stronę,
+- przykładowy workflow GitHub Actions aktualizujący ten plik.
 
-To jest statyczna wersja demonstracyjna. Wszystkie strony mają wspólny wygląd i działające linki między podstronami.
+Ważne: przed użyciem workflow trzeba wstawić **ID kanału YouTube** w adresie RSS:
+`https://www.youtube.com/feeds/videos.xml?channel_id=...`
 
-Następny etap:
-1. dodać prawdziwe teksty i źródła,
-2. dodać wyszukiwarkę,
-3. dodać osobne artykuły,
-4. podłączyć YouTube,
-5. przenieść całość na hosting/WordPress albo rozbudować jako własny serwis.
+Nie należy wpisywać samego adresu `@adrianzalejko-jf8tr` w miejsce `channel_id`.
