@@ -1,0 +1,78 @@
+name: Aktualizuj najnowszy film YouTube
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - latest-youtube.json
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-latest-youtube:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pobierz repozytorium
+        uses: actions/checkout@v4
+
+      - name: Pobierz najnowszy film z kanału
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHANNEL_HANDLE="@adrianzalejko-jf8tr"
+          python3 - <<'PY'
+          import json, re, urllib.request
+          from xml.etree import ElementTree as ET
+
+          handle = "@adrianzalejko-jf8tr"
+          url = "https://www.youtube.com/" + handle
+          req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+          html = urllib.request.urlopen(req, timeout=30).read().decode("utf-8", "ignore")
+
+          ids = re.findall(r'"channelId":"(UC[A-Za-z0-9_-]+)"', html)
+          if not ids:
+              ids = re.findall(r'"externalId":"(UC[A-Za-z0-9_-]+)"', html)
+          if not ids:
+              raise SystemExit("Nie znaleziono ID kanału YouTube dla " + handle)
+
+          channel_id = ids[0]
+          rss = "https://www.youtube.com/feeds/videos.xml?channel_id=" + channel_id
+          req = urllib.request.Request(rss, headers={"User-Agent": "Mozilla/5.0"})
+          root = ET.fromstring(urllib.request.urlopen(req, timeout=30).read())
+
+          ns = {
+              "atom": "http://www.w3.org/2005/Atom",
+              "yt": "http://www.youtube.com/xml/schemas/2015"
+          }
+          entry = root.find("atom:entry", ns)
+          if entry is None:
+              raise SystemExit("Kanał nie zwrócił żadnego filmu w RSS.")
+
+          video_id = entry.findtext("yt:videoId", default="", namespaces=ns)
+          title = entry.findtext("atom:title", default="", namespaces=ns)
+          published = entry.findtext("atom:published", default="", namespaces=ns)
+
+          with open("latest-youtube.json", "w", encoding="utf-8") as f:
+              json.dump({
+                  "id": video_id,
+                  "title": title,
+                  "published": published
+              }, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+          PY
+
+      - name: Zapisz zmianę
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add latest-youtube.json
+          if git diff --cached --quiet; then
+            echo "Brak zmian."
+          else
+            git commit -m "Aktualizuj najnowszy film YouTube"
+            git push
+          fi
