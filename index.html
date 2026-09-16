@@ -85,31 +85,39 @@ nav{border-top:1px solid rgba(201,164,91,.2)}
 .thumb img{display:block;width:100%;height:100%;object-fit:cover;min-width:0;min-height:0}
 .list-item h4{margin:2px 0 5px;font-size:18px;line-height:1.25}
 .list-item p{margin:0 0 7px;color:var(--muted);font-size:13px;line-height:1.45}
-.saint-day{background:linear-gradient(180deg,#fffaf0 0%,#f0e5d0 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.saint-day-card{background:var(--white);border:1px solid var(--line);padding:34px;position:relative;box-shadow:0 10px 30px rgba(40,30,15,.07);overflow:hidden}
-.saint-day-card:before{content:"✠";position:absolute;right:24px;top:14px;color:rgba(201,164,91,.22);font-size:42px}
-.saint-day-date{font-size:clamp(21px,3vw,29px);letter-spacing:.2px;color:var(--ink);margin-bottom:16px;text-transform:capitalize}
-.saint-day-grid{display:grid;gap:16px}
-.saint-day-entry{position:relative;background:#fffdf8;border:1px solid var(--line);padding:25px 27px 24px}
-.saint-day-entry.primary{border-top:4px solid var(--gold);padding-top:22px}
-.saint-day-entry.martyr{background:linear-gradient(135deg,#8f1d2c,#b72f3f);border-color:#721622;color:#fff}
+.saint-day{background:linear-gradient(180deg,#fbf6eb 0%,#f1e7d5 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.saint-day-card{background:transparent;border:0;padding:0;position:relative;box-shadow:none;overflow:visible}
+.saint-day-card:before{display:none}
+.saint-day-date{font-size:clamp(21px,3vw,29px);letter-spacing:.2px;color:var(--ink);margin-bottom:20px;text-transform:capitalize}
+.saint-day-grid{display:grid;gap:20px}
+.saint-day-entry{position:relative;border:1px solid #d1bd91;padding:34px 30px 28px;overflow:hidden;box-shadow:0 7px 18px rgba(58,38,12,.08)}
+.saint-day-entry:after{content:"✠";position:absolute;right:28px;top:20px;font-size:38px;opacity:.18}
+.saint-day-entry.primary{border-top:6px solid var(--gold);padding-top:28px}
+.saint-day-entry.martyr{background:radial-gradient(circle at 72% 38%,rgba(255,255,255,.08),transparent 30%),linear-gradient(135deg,#8e1828 0%,#b51f36 55%,#8b1524 100%);border-color:#6d1220;color:#fff}
 .saint-day-entry.martyr h4,.saint-day-entry.martyr p{color:#fff}
-.saint-day-entry.commemoration{background:linear-gradient(135deg,#f0d98c,#fff0bc);border-left:4px solid #b18a32;border-color:#c5a357}
-.saint-day-entry.ember{background:linear-gradient(135deg,#4f3766,#72538d);border-left:4px solid #5d4078;border-color:#5d4078;color:#fff}
+.saint-day-entry.martyr .saint-day-rank{color:#e8c878}
+.saint-day-entry.martyr .saint-day-rank:before{color:#e8c878}
+.saint-day-entry.commemoration{background:radial-gradient(circle at 82% 55%,rgba(255,255,255,.22),transparent 34%),linear-gradient(135deg,#f3d987 0%,#ffe8a8 52%,#f2d17a 100%);border-color:#b8944a;color:#18202a}
+.saint-day-entry.commemoration .saint-day-rank{color:#795a25}
+.saint-day-entry.ember{background:radial-gradient(circle at 85% 50%,rgba(255,255,255,.12),transparent 34%),linear-gradient(135deg,#3e2858 0%,#65417e 55%,#3b2554 100%);border-color:#4a2f66;color:#fff}
 .saint-day-entry.ember h4,.saint-day-entry.ember p{color:#fff}
-.saint-day-rank{display:inline-flex;align-items:center;gap:8px;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:bold;margin-bottom:8px}
+.saint-day-entry.ember .saint-day-rank{color:#eadcae}
+.saint-day-entry.ember .saint-day-rank:before{color:#eadcae}
+.saint-day-ember-banner{display:flex;align-items:center;gap:16px;margin:-2px -4px 24px;padding:14px 18px;background:linear-gradient(90deg,#332148,#513268,#332148);border:1px solid #b8944a;color:#f6ead0;text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:bold}
+.saint-day-ember-banner .ember-cross{font-size:24px;color:#eadcae;line-height:1}
+.saint-day-ember-banner .ember-copy{display:flex;flex-direction:column;gap:2px}
+.saint-day-ember-banner small{font-size:10px;letter-spacing:1.6px;opacity:.85}
+.saint-day-rank{display:inline-flex;align-items:center;gap:8px;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;font-weight:bold;margin-bottom:10px}
 .saint-day-rank:before{content:"✦";color:var(--gold)}
-.saint-day-entry h4{font-size:clamp(25px,4vw,38px);line-height:1.12;margin:0 50px 10px 0}
+.saint-day-entry h4{font-size:clamp(25px,4vw,38px);line-height:1.12;margin:0 55px 12px 0}
 .saint-day-entry p{margin:0;color:var(--muted);font-size:16px;line-height:1.6}
-.saint-day-badge{display:inline-block;margin:0 0 12px;padding:5px 9px;border:1px solid rgba(201,164,91,.55);color:#7e5d25;font-size:10px;letter-spacing:1.2px;text-transform:uppercase;font-weight:bold;background:#fffaf0}
-.saint-day-link{display:block;color:inherit;transition:.2s}.saint-day-link:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(40,30,15,.11)}
-.saint-day-actions{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
-.saint-day-read{display:inline-block;color:#8d6728;font-weight:bold;font-size:13px}
+.saint-day-entry.martyr .saint-day-read,.saint-day-entry.ember .saint-day-read{color:#f2dfb4;border-color:#d4b66b}
+.saint-day-entry.commemoration .saint-day-read{color:#765622;border-color:#a98237}
+.saint-day-read{display:inline-block;color:#8d6728;font-weight:bold;font-size:13px;border:1px solid currentColor;padding:10px 15px;text-decoration:none}
+.saint-day-read:hover{transform:translateY(-1px)}
+.saint-day-actions{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px}
 .saint-day-note{text-align:center;color:var(--muted);font-size:13px;margin:20px auto 0;max-width:900px}
-.saint-day-ember{display:flex;gap:14px;align-items:flex-start;margin-top:16px;padding:16px 18px;background:#f7eedf;border:1px solid var(--line)}
-.saint-day-ember .ember-cross{color:var(--gold);font-size:22px;line-height:1}
-.saint-day-ember strong{color:var(--ink)}
-@media(max-width:600px){.saint-day-card{padding:22px 16px}.saint-day-entry{padding:20px 18px}.saint-day-entry h4{font-size:27px}.saint-day-entry p{font-size:15px}}
+@media(max-width:600px){.saint-day-entry{padding:28px 18px 24px}.saint-day-entry h4{font-size:27px}.saint-day-entry p{font-size:15px}.saint-day-ember-banner{margin:-2px -2px 20px;padding:12px 14px;font-size:10px;letter-spacing:1.5px}}
 .dark-section{background:var(--navy);color:#fff}
 .answers{width:min(var(--max),100%);margin:auto;padding:68px 32px}
 .dark-section .section-title h3{color:#f8efd9}
@@ -438,15 +446,19 @@ const fixed = {
       entries.forEach(function(x){
         const isMartyr=/męczennik|męczennicy/i.test(x.title);
         const cls='saint-day-entry primary'+(isMartyr?' martyr':'');
-        html+='<article class="'+cls+'"><div class="saint-day-rank">'+x.rank+'</div>';
+        html+='<article class="'+cls+'">';
+        if(x.ember) html+='<div class="saint-day-ember-banner"><span class="ember-cross">✠</span><span class="ember-copy"><span>Suche Dni wrześniowe</span><small>'+x.ember.split('—')[1].trim()+'</small></span></div>';
+        html+='<div class="saint-day-rank">'+x.rank+'</div>';
         html+='<h4>'+x.title+'</h4><p>'+x.desc+'</p>';
         if(x.href) html+='<div class="saint-day-actions"><a class="saint-day-read" href="'+x.href+'">Pełne wspomnienie i biografie →</a></div>';
         html+='</article>';
         if(x.commemoration){
-          html+='<article class="saint-day-entry commemoration"><div class="saint-day-rank">Kommemoracja</div><h4>'+x.commemoration+'</h4><p>Wspomnienie liturgiczne świętych Eufemii, Łucji i Geminiana, włączone do tego samego odnośnika z biografiami i materiałem ikonograficznym.</p></article>';
+          html+='<article class="saint-day-entry commemoration"><div class="saint-day-rank">Kommemoracja</div><h4>'+x.commemoration+'</h4><p>Wspomnienie liturgiczne świętych Eufemii, Łucji i Geminiana, włączone do tego samego odnośnika z biografiami i materiałem ikonograficznym.</p>';
+          if(x.href) html+='<div class="saint-day-actions"><a class="saint-day-read" href="'+x.href+'">Pełne wspomnienie i biografie →</a></div>';
+          html+='</article>';
         }
         if(x.ember){
-          html+='<article class="saint-day-entry ember"><div class="saint-day-rank">Dni Suche</div><h4>'+x.ember+'</h4><p>Dzień pokutny, w którym Kościół łączy post i modlitwę z dziękczynieniem oraz prośbą o Boże błogosławieństwo.</p></article>';
+          html+='<article class="saint-day-entry ember"><div class="saint-day-rank">Suche Dni</div><h4>'+x.ember+'</h4><p>Dzień pokutny, w którym Kościół łączy post i modlitwę z dziękczynieniem oraz prośbą o Boże błogosławieństwo.</p></article>';
         }
       });
       root.innerHTML=html;
