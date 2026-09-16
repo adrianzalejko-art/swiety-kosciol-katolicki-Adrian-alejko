@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adrianzalejko-art.github.io/swiety-kosciol-katolicki-Adrian-alejko/sitemap.xml
+Sitemap: https://swietykosciolkatokicki-adrianzalejko.netlify.app/sitemap.xml
