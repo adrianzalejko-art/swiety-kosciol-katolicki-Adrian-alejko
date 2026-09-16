@@ -82,17 +82,6 @@
     .footer-inner{max-width:var(--max);margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
     footer strong{color:var(--gold2)}
     .copyright{font-size:13px;color:#8d887d}
-
-    .saint-day{background:linear-gradient(180deg,#fffaf0,#f3ead8);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .saint-day-date{text-align:center;color:var(--gold);font-size:18px;text-transform:capitalize;margin:-5px 0 22px;font-weight:bold}
-    .saint-day-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .saint-day-card{background:#fff;border:1px solid var(--line);padding:25px;position:relative}
-    .saint-day-card:before{content:"✠";position:absolute;right:18px;top:12px;color:rgba(201,164,91,.35);font-size:30px}
-    .saint-day-rank{display:inline-block;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:bold;margin-bottom:6px}
-    .saint-day-card h4{font-size:22px;margin:0 35px 8px 0}
-    .saint-day-card p{margin:0;color:var(--muted);font-size:15px}
-    .saint-day-note{text-align:center;color:var(--muted);font-size:13px;margin:22px 0 0}
-    @media(max-width:850px){.saint-day-grid{grid-template-columns:1fr}}
     @media(max-width:850px){
       .header{flex-direction:column;text-align:center}
       .quote{text-align:center}
@@ -107,7 +96,11 @@
       .list-item{grid-template-columns:90px 1fr}
       .thumb{height:68px}
     }
-  </style>
+  
+.saint-day{background:linear-gradient(180deg,#fffaf0,#f3ead8);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.saint-day-card{background:#fff;border:1px solid var(--line);padding:25px;position:relative}.saint-day-card:before{content:"✠";position:absolute;right:18px;top:12px;color:rgba(201,164,91,.35);font-size:30px}.saint-day-card h4{font-size:22px;margin:0 35px 8px 0}.saint-day-rank{display:inline-block;color:#8c6827;font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:bold;margin-bottom:6px}.saint-day-card p{margin:0;color:var(--muted);font-size:15px}.saint-day-note{text-align:center;color:var(--muted);font-size:13px;margin:22px 0 0}
+</style>
+  <meta name="google-site-verification" content="a3Uk7alYnKUfXhKAE3CmxIvukcoq_lrVSUhgeZEMq9k" />
 </head>
 <body>
 <header class="topbar">
@@ -148,12 +141,11 @@
     </div>
   </section>
 
+
   <section class="section saint-day" id="swieci-dnia">
-    <div class="section-title">
-      <div class="eyebrow">Kalendarz liturgiczny</div>
-      <h3>Święci dnia dzisiejszego</h3>
-    </div>
-    <div data-saints-today></div>
+    <div class="section-title"><div class="eyebrow">Kalendarz liturgiczny</div><h3>Święci dnia dzisiejszego</h3></div>
+    <div class="saint-day-card" data-saints-today><p style="color:var(--muted);margin:0">Ładowanie kalendarza...</p></div>
+    <p class="saint-day-note">Kalendarz oparty na układzie rzymskim <strong>Divino Afflatu – 1954</strong>, czyli stanie sprzed reformy z 1955 r. Sekcja zmienia się automatycznie każdego dnia.</p>
   </section>
 
   <section class="section" id="tradycja">
@@ -190,8 +182,12 @@
     </div>
     <div class="split">
       <div>
-        <h3>Najnowsze</h3>
-        <article class="list-item"><div class="thumb" style="padding:0;overflow:hidden"><img src="assets/cyprian-rzym.png" alt="Święty Cyprian z Kartaginy i Rzym" style="width:100%;height:100%;object-fit:cover"></div><div><h4>Św. Cyprian z Kartaginy — Rzym, Katedra Piotra i jedność Kościoła</h4><p>List 59, List 48 i List 68 oraz spór ze Stefanem I o chrzest heretyków.</p><a class="more" href="article-cyprian-rzym.html">Czytaj artykuł →</a></div></article>
+        <h3>Najnowsze artykuły</h3>
+        <article class="list-item"><div class="thumb article-thumb"><img src="cyprian-rzym.png" alt="Święty Cyprian z Kartaginy i Rzym"></div><div><h4>Św. Cyprian z Kartaginy — Rzym, Katedra Piotra i jedność Kościoła</h4><p>List 59, List 48 i List 68 oraz spór ze Stefanem I o chrzest heretyków.</p><a class="more" href="article-cyprian-rzym.html">Czytaj artykuł →</a></div></article>
+        <article class="list-item"><div class="thumb" style="padding:0;overflow:hidden"><img src="maryja.jpg" alt="Najświętsza Maryja Panna" style="width:100%;height:100%;object-fit:cover"></div><div><h4>Najświętsza Maryja Panna Jest Wolna od Wszelkiego Grzechu!</h4><p>Arka Nowego Przymierza, typologia biblijna i świadectwo Ojców Kościoła.</p><a class="more" href="article-maryja.html">Czytaj artykuł →</a></div></article>
+        <article class="list-item"><div class="thumb article-thumb"><img src="article-church-thumb.jpg" alt="Kościół katolicki i Bazylika św. Piotra"></div><div><h4>Dlaczego Kościół Katolicki?</h4><p>O Boskim ustanowieniu, znamionach prawdy i Mistycznym Ciele Chrystusa.</p><a class="more" href="church-of-christ.html">Przeczytaj →</a></div></article>
+        <article class="list-item"><div class="thumb article-thumb"><img src="article-tradition-thumb.jpg" alt="Krzyż, Biblia i tradycja Kościoła"></div><div><h4>Ojcowie Kościoła a Święta Tradycja</h4><p>Świadkowie i Strażnicy Niezmiennego Depozytu Wiary.</p><a class="more" href="article-ojcowie-tradycja.html">Przeczytaj →</a></div></article>
+        <article class="list-item"><div class="thumb article-thumb"><img src="article-objections-thumb.jpg" alt="Biblia i krzyż — kompendium apologetyczne"></div><div><h4>Wielkie Kompendium Apologetyczne</h4><p>Obalenie 12 Głównych Zarzutów Wobec Wiary Katolickiej.</p><a class="more" href="article-apologetyka-zarzuty.html">Przeczytaj →</a></div></article>
       </div>
       <div id="multimedia">
         <h3>Najnowsze materiały wideo</h3>
@@ -255,5 +251,6 @@ const quotes=[
 ];
 let i=0; const q=document.querySelector('.quote'); function rotate(){const [t,r]=quotes[i]; q.innerHTML='„'+t.replace(/^„|”$/g,'')+'”<span>'+r+'</span>'; i=(i+1)%quotes.length;} setInterval(rotate,5500);
 </script>
+<script src="calendar-1954.js"></script>
 </body>
 </html>
